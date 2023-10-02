@@ -1,0 +1,81 @@
+@use '@angular/material' as mat;
+@import '@angular/material/theming';
+
+// Palettes generated using http://mcg.mbitson.com/
+
+$primary-palette: (
+  50: #e7e6e6,
+  100: #c2c1c0,
+  200: #999897,
+  300: #706f6d,
+  400: #52504d,
+  500: #33312e,
+  // Palette is based off this color
+  600: #2e2c29,
+  700: #272523,
+  800: #201f1d,
+  900: #141312,
+  A100: #f5ac67,
+  A200: #f19237,
+  A400: #f57a00,
+  A700: #db6e00,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$accent-palette: (
+  50: #fdfefb,
+  100: #fafcf4,
+  200: #f7faed,
+  300: #f3f8e6,
+  400: #f1f7e0,
+  500: #eef5db,
+  // Palette is based off this color
+  600: #ecf4d7,
+  700: #e9f2d2,
+  800: #e7f0cd,
+  900: #e2eec4,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #ffffff,
+  A700: #ffffff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    // manually changed to white to support white text on base accent color
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+// Extra Colours
+$footer-colour: #cccccc;
+$image-panel-bg: #73808d;
+$panels-bg: #474d54;
+$main-bg: #525861;
+$panel-border-colour: #697481;
+$scroll-bar: #55616d;
