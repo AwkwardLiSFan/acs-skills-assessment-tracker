@@ -9,6 +9,7 @@ import { HeaderComponent } from './common/header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MaterialModule } from './modules/material/material.module';
 import { DialogComponent } from './common/dialog/dialog.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DialogComponent } from './common/dialog/dialog.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
