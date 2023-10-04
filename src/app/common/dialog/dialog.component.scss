@@ -1,0 +1,13 @@
+.dialog-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 600px;
+    background-color: #ddd9d4;
+}
+
+.dialog-title {
+    font-weight: 500;
+}
