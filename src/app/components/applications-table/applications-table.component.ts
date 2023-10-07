@@ -11,7 +11,8 @@ type TableEntry = {
   date_submitted: string,
   date_received: string,
   days_taken: number,
-  is_delay: boolean
+  stream: string,
+  location: string
 }
 
 @Component({
@@ -26,7 +27,7 @@ export class ApplicationsTableComponent {
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
 
   // Table data
-  displayedColumns: Array<string> = ['anzsco', 'date_submitted', 'date_received', 'days_taken', 'is_delay'];
+  displayedColumns: Array<string> = ['anzsco', 'date_submitted', 'date_received', 'days_taken', 'stream', 'location'];
   dataSource: MatTableDataSource<TableEntry>;
 
   constructor(
@@ -39,90 +40,104 @@ export class ApplicationsTableComponent {
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
-        is_delay: false
+        stream: "PAS",
+        location: "Onshore"
       },
       {
         anzsco_code: "261313",
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
-        is_delay: false
+        stream: "PAS",
+        location: "Offshore"
       },
       {
         anzsco_code: "261313",
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
-        is_delay: false
+        stream: "PAS",
+        location: "Offshore"
       },
       {
         anzsco_code: "261313",
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
-        is_delay: false
+        stream: "PAS",
+        location: "Offshore"
       },
       {
         anzsco_code: "261313",
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
-        is_delay: false
+        stream: "PAS",
+        location: "Onshore"
       },
       {
         anzsco_code: "261313",
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
-        is_delay: false
+        stream: "PAS",
+        location: "Onshore"
       },
       {
         anzsco_code: "261313",
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
-        is_delay: false
+        stream: "PAS",
+        location: "Onshore"
       },
       {
         anzsco_code: "261313",
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
-        is_delay: false
+        stream: "PAS",
+        location: "Onshore"
       },
       {
         anzsco_code: "261313",
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
-        is_delay: false
+        stream: "PAS",
+        location: "Onshore"
       },
       {
         anzsco_code: "261313",
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
-        is_delay: false
+        stream: "Diploma",
+        location: "Onshore"
       },
       {
         anzsco_code: "261313",
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
-        is_delay: false
+        stream: "General",
+        location: "Offshore"
       },
       {
         anzsco_code: "261313",
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
-        is_delay: false
+        stream: "PAS",
+        location: "Offshore"
       }
     ];
 
     this.dataSource  = new MatTableDataSource(data);
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+    setTimeout(() => {
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;  
+    }, 100);
   }
 
   /**
