@@ -94,3 +94,19 @@ body {
   width: 60vw;
   background: $image-panel-bg;
 }
+
+/* Blur the background when the About dialog is opened */
+.bgClass {
+  filter: blur(20px);
+  background-color: #aba1a1;
+  opacity: 0.4 !important;
+}
+
+/* Custom global styles */
+.mat-mdc-select-panel { 
+  background: $image-panel-bg !important;
+}
+
+.mdc-list-item__primary-text {
+  color: #ffffff !important;
+}

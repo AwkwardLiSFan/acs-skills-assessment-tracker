@@ -1,5 +1,6 @@
 <!-- Content  -->
 <table
+    class="applications-table"
     mat-table
     [dataSource]="dataSource"
     matSort
@@ -47,4 +48,4 @@
 </table>
 
 <!-- Pagination for controlling entries per page -->
-<mat-paginator #paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator>
+<mat-paginator class="paginator-section" #paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator>

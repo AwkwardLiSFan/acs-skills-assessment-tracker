@@ -6,10 +6,19 @@
     align-items: center;
 }
 
-.table-header {
-    color: #ecf4d7;
+.button-container {
+    margin-bottom: 40px;
 }
 
 .applications-table {
     width: 100%;
+}
+
+.add-button {
+    font-size: 22px;
+    border: 2px solid;
+    border-radius: 4px;
+    font-weight: 600;
+    min-width: 200px;
+    min-height: 45px;
 }
