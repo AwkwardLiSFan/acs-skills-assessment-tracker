@@ -79,12 +79,22 @@ body {
 
 body {
   margin: 0;
-  font-family: "Jetbrains Mono", "Helvetica Neue", sans-serif;
+  font-family: "Jetbrains Mono", "Helvetica Neue", sans-serif !important;
   background: $image-panel-bg;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+// Enforce Eina font for all table/card/dropdown elements across the app
+.mat-select, .mat-option, .mat-card, .mat-table {
+  font-family: "Jetbrains Mono";
+}
+
+
+.mat-mdc-header-row {
+  font-family: "Jetbrains Mono", "Helvetica Neue", sans-serif !important;
 }
 
 .app-container {
