@@ -42,6 +42,7 @@ export class HeaderComponent {
       title: "ABOUT",
       message: this.aboutText
     };
+    this.dialogConfig.backdropClass = 'bgClass';
   }
 
   /**

@@ -79,12 +79,44 @@ body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Jetbrains Mono", "Helvetica Neue", sans-serif !important;
+  background: $image-panel-bg;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+// Enforce Eina font for all table/card/dropdown elements across the app
+.mat-select, .mat-option, .mat-card, .mat-table {
+  font-family: "Jetbrains Mono";
+}
+
+
+.mat-mdc-header-row {
+  font-family: "Jetbrains Mono", "Helvetica Neue", sans-serif !important;
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  width: 60vw;
   background: $image-panel-bg;
+}
+
+/* Blur the background when the About dialog is opened */
+.bgClass {
+  filter: blur(20px);
+  background-color: #aba1a1;
+  opacity: 0.4 !important;
+}
+
+/* Custom global styles */
+.mat-mdc-select-panel { 
+  background: $image-panel-bg !important;
+}
+
+.mdc-list-item__primary-text {
+  color: #ffffff !important;
 }
