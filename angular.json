@@ -27,11 +27,13 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/fonts"
             ],
             "styles": [
               "src/styles.scss",
-              "src/styling/palettes.scss"
+              "src/styling/palettes.scss",
+              "src/assets/fonts/fonts.scss"
             ],
             "scripts": []
           },
@@ -91,11 +93,13 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/fonts"
             ],
             "styles": [
               "src/styles.scss",
-              "src/styling/palettes.scss"
+              "src/styling/palettes.scss",
+              "src/assets/fonts/fonts.scss"
             ],
             "scripts": []
           }
