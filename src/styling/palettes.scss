@@ -1,0 +1,121 @@
+@use '@angular/material' as mat;
+@import '@angular/material/theming';
+
+// Palettes generated using http://mcg.mbitson.com/
+
+$primary-palette: (
+  50: #e7e6e6,
+  100: #c2c1c0,
+  200: #999897,
+  300: #706f6d,
+  400: #52504d,
+  500: #33312e,
+  // Palette is based off this color
+  600: #2e2c29,
+  700: #272523,
+  800: #201f1d,
+  900: #141312,
+  A100: #f5ac67,
+  A200: #f19237,
+  A400: #f57a00,
+  A700: #db6e00,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$accent-palette: (
+  50: #fdfefb,
+  100: #fafcf4,
+  200: #f7faed,
+  300: #f3f8e6,
+  400: #f1f7e0,
+  500: #eef5db,
+  // Palette is based off this color
+  600: #ecf4d7,
+  700: #e9f2d2,
+  800: #e7f0cd,
+  900: #e2eec4,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #ffffff,
+  A700: #ffffff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    // manually changed to white to support white text on base accent color
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+// Extra Colours
+$footer-colour: #cccccc;
+$image-panel-bg: #141312;
+$panels-bg: #474d54;
+$main-bg: none;
+$panel-border-colour: #697481;
+$scroll-bar: #55616d;
+
+// Define custom dark theme forground and background pallets.
+// Angular defines a preset for dark and light themes with no simple customisation methods.
+// Here we have copied the defaults from ~@angular/material/theming and replaced the options
+// with colours defined in https://labs.consilium.technology/confluence/display/MAKB/Graphical+Design.
+$dark-theme-foreground: (
+  base: white,
+  divider: $light-dividers,
+  dividers: $light-dividers,
+  disabled: $light-disabled-text,
+  disabled-button: rgba(white, 0.3),
+  disabled-text: $light-disabled-text,
+  elevation: black,
+  hint-text: $light-disabled-text,
+  secondary-text: $light-secondary-text,
+  icon: white,
+  icons: white,
+  text: white,
+  slider-min: white,
+  slider-off: rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);
+
+$dark-theme-background: (
+  status-bar: black,
+  app-bar: map_get(mat.$grey-palette, 900),
+  background: $image-panel-bg,
+  hover: rgba(white, 0.04),
+  card: $panels-bg,
+  dialog: $main-bg,
+  disabled-button: rgba(white, 0.12),
+  raised-button: map-get(mat.$grey-palette, 800),
+  focused-button: $light-focused,
+  selected-button: map_get(mat.$grey-palette, 900),
+  selected-disabled-button: map_get(mat.$grey-palette, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map_get(mat.$grey-palette, 700),
+  disabled-list-option: black,
+  tooltip: map_get(mat.$grey-palette, 700),
+);

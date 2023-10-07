@@ -1,0 +1,26 @@
+.dialog-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 600px;
+    background-color: #ddd9d4;
+    padding: 35px;
+    border-radius: 40px;
+}
+
+.dialog-title {
+    font-weight: 500;
+}
+
+.dialog-text {
+    font-size: 20px;
+    text-align: justify;
+    word-wrap: normal;
+    overflow: visible;
+    white-space: break-spaces;
+    margin: 1em 0;
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,7 @@
+<p>The idea for this application was conceived during the interminable wait between submitting my skills assessment application and receiving a response.</p>
+
+<p>Day in and day out, thoughts of getting a rejection or delayed response kept me on edge. More than anything, I wished for a clearer picture of the current processing times, seeing as the official guidelines aren't updated as often as we'd like them to be.</p>
+
+<p>Data is a beautiful thing, and in such scenarios, it can be the difference between stumbling in the dark versus making educated guesses. As more people log their experience on this app, future applicants will gain insights into current trends, and hopefully a clearer idea of what to expect with their own application.</p>
+
+<p>Lastly, I hope this helps alleviate some of the anxiety! &#128512;</p>
