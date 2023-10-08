@@ -147,10 +147,6 @@ body {
   color: inherit !important;
 }
 
-// .mdc-floating-label, .mat-mdc-select-value-text, .mat-mdc-select-arrow {
-//   color: black !important;
-// }
-
 /* Blur the background when the About dialog is opened */
 .bgClass {
   filter: blur(20px);
@@ -173,4 +169,25 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@media only screen and (max-width: 1000px) {
+  .app-container {
+    width: 100vw;
+  }
+
+  .dialog {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 275px;
+    background-color: #ddd9d4;
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 10px;
+  }
+  
+  .dialog-title {
+    font-size: 20px;
+  }
 }

@@ -23,8 +23,8 @@
 }
 
 .action-button {
-    min-width: 40%;
-    min-height: 50px;
+    width: 40%;
+    height: 50px;
     font-size: 18px;
     font-family: "Jetbrains";
     color: white;
@@ -36,5 +36,13 @@
         background-color: gray;
         color: black;
         opacity: 0.6;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .action-button {
+        max-width: 20% !important;
+        max-height: 30px !important;
+        font-size: 14px;
     }
 }

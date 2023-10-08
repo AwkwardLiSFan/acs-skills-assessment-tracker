@@ -1,9 +1,14 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { DateTime } from "luxon";
+import {
+  BreakpointObserver,
+  BreakpointState
+} from '@angular/cdk/layout';
+
 
 type TableEntry = {
   anzsco_code: string,
@@ -20,7 +25,7 @@ type TableEntry = {
   templateUrl: './applications-table.component.html',
   styleUrls: ['./applications-table.component.scss']
 })
-export class ApplicationsTableComponent {
+export class ApplicationsTableComponent implements OnInit {
 
   // Table controls
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
@@ -30,8 +35,12 @@ export class ApplicationsTableComponent {
   displayedColumns: Array<string> = ['anzsco', 'date_submitted', 'date_received', 'days_taken', 'outcome', 'stream', 'location'];
   dataSource: MatTableDataSource<TableEntry>;
 
+  // Track screen size
+  public resizeTable: boolean = false;
+
   constructor(
     private dialog: MatDialog,
+    public breakpointObserver: BreakpointObserver
   ) {
     // test data
     let data: TableEntry[] =  [
@@ -150,6 +159,19 @@ export class ApplicationsTableComponent {
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;  
     }, 100);
+  }
+
+  ngOnInit(): void {
+    this.breakpointObserver
+      .observe(['(max-width: 1000px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          console.log('Viewport width is 1000px or less!');
+          this.resizeTable = true;
+        } else {
+          console.log('Viewport width is greater than 1000px!');
+        }
+      });  
   }
 
   /**

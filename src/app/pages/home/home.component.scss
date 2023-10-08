@@ -6,10 +6,6 @@
     align-items: center;
 }
 
-.button-container {
-    margin-bottom: 40px;
-}
-
 .applications-table {
     width: 100%;
 }
@@ -19,7 +15,30 @@
     border: 2px solid;
     border-radius: 4px;
     font-weight: 600;
-    min-width: 200px;
-    min-height: 45px;
+    width: 200px;
+    height: 45px;
     font-family: "Jetbrains", "Helvetica Neue", sans-serif !important;
+}
+
+@media only screen and (max-width: 1000px) {
+    .add-button {
+        font-size: 16px;
+        width: 150px;
+        height: 30px;
+    }
+
+    .table-container {
+        overflow-x: scroll;
+    }
+
+    .button-container {
+        margin-top: 10px;
+    }
+}
+
+/* Resize header for screen widths <350px */
+@media screen and (max-width: 350px) {
+    .button-container {
+        margin-top: 100px;
+    }
 }

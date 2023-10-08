@@ -42,10 +42,10 @@
     cursor: pointer;
 }
 
-/* Resize header for screen widths <500px */
-@media screen and (max-width: 500px) {
+/* Resize header for screen widths <900px */
+@media screen and (max-width: 1000px) {
     .header-text {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .header-icon {

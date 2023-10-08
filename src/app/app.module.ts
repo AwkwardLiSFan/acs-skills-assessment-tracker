@@ -12,6 +12,7 @@ import { DialogComponent } from './common/dialog/dialog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApplicationsTableComponent } from './components/applications-table/applications-table.component';
 import { AddEntryDialogComponent } from './components/add-entry-dialog/add-entry-dialog.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AddEntryDialogComponent } from './components/add-entry-dialog/add-entry
     BrowserAnimationsModule,
     FontAwesomeModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
