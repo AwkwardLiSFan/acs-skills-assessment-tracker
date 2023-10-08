@@ -135,6 +135,18 @@ body {
   color: #ffffff !important;
 }
 
+.mat-calendar {
+  background-color: #141312;
+}
+
+.mat-datepicker-input, .mat-datepicker-toggle, .mat-mdc-form-field-required-marker {
+  color: black !important;
+}
+
+.mat-mdc-select-arrow {
+  color: inherit !important;
+}
+
 // .mdc-floating-label, .mat-mdc-select-value-text, .mat-mdc-select-arrow {
 //   color: black !important;
 // }

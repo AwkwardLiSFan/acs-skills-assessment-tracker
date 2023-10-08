@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ViewEncapsulation } from '@angular/core';
 
 export const anzscoCodes: Map<number, string> = new Map<number, string>([
   [261311, "Analyst Programmer"],
@@ -28,16 +27,35 @@ export const anzscoCodes: Map<number, string> = new Map<number, string>([
   [261212, "Web Developer"]
 ]);
 
+export const potentialOutcomes: Array<string> = [
+  "Positive",
+  "Negative"
+];
+
+export const potentialStreams: Array<string> = [
+  "Temporary Graduate",
+  "Post Australian Study",
+  "General",
+  "RPL"
+];
+
+export const potentialLocations: Array<string> = [
+  "Onshore",
+  "Offshore"
+];
+
 @Component({
   selector: 'app-add-entry-dialog',
   templateUrl: './add-entry-dialog.component.html',
-  styleUrls: ['./add-entry-dialog.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./add-entry-dialog.component.scss']
 })
 export class AddEntryDialogComponent {
 
-  // Setup ANZSCO Code List
+  // Setup form data
   public codes: Map<number, string> = anzscoCodes;
+  public outcomes: Array<string> = potentialOutcomes;
+  public streams: Array<string> = potentialStreams;
+  public locations: Array<string> = potentialLocations;
 
   // Setup form controls
   public form: FormGroup = this.formBuilder.group({
@@ -45,6 +63,7 @@ export class AddEntryDialogComponent {
     dateSubmitted: ['', Validators.required],
     dateReceived: ['', Validators.required],
     daysTaken: ['', Validators.required],
+    outcome: ['', Validators.required],
     stream: ['', Validators.required],
     location: ['', Validators.required]
   });

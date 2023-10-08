@@ -7,14 +7,63 @@
             <!-- ANZSCO code -->
             <mat-form-field>
                 <mat-label style="color: black;">ANZSCO</mat-label>
-                <mat-select style="color: black;">
-                    <mat-option *ngFor="let code of codes | keyvalue" [value]="code.key" style="color: black">
+                <mat-select [required]="true" style="color: black;">
+                    <mat-option *ngFor="let code of codes | keyvalue" [value]="code.key">
                         {{ code.key }} - {{ code.value }}
                     </mat-option>
                 </mat-select>
                 <mat-error *ngIf="form.controls['anzsco'].invalid">{{ errorMessage('anzsco') }}</mat-error>
             </mat-form-field>
 
+            <!-- Date Application Submitted -->
+            <mat-form-field>
+                <mat-label style="color: black;">Submitted On</mat-label>
+                <input [required]="true" matInput [matDatepicker]="submittedPicker">
+                <mat-datepicker-toggle matIconSuffix [for]="submittedPicker"></mat-datepicker-toggle>
+                <mat-datepicker #submittedPicker></mat-datepicker>
+            </mat-form-field>
+
+            <!-- Date Result Received -->
+            <mat-form-field>
+                <mat-label style="color: black;">Received On</mat-label>
+                <input [required]="true" matInput [matDatepicker]="receivedPicker">
+                <mat-datepicker-toggle matIconSuffix [for]="receivedPicker"></mat-datepicker-toggle>
+                <mat-datepicker #receivedPicker></mat-datepicker>
+            </mat-form-field>
+
+            <!-- Outcome -->
+            <mat-form-field>
+                <mat-label style="color: black;">Outcome</mat-label>
+                <mat-select [required]="true" style="color: black;">
+                    <mat-option *ngFor="let outcome of outcomes" [value]="outcome">
+                        {{ outcome }}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.controls['outcome'].invalid">{{ errorMessage('outcome') }}</mat-error>
+            </mat-form-field>   
+
+            <!-- Stream -->
+            <mat-form-field>
+                <mat-label style="color: black;">Stream</mat-label>
+                <mat-select [required]="true" style="color: black;">
+                    <mat-option *ngFor="let stream of streams" [value]="stream">
+                        {{ stream }}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.controls['stream'].invalid">{{ errorMessage('stream') }}</mat-error>
+            </mat-form-field>   
+
+            <!-- Location -->
+            <mat-form-field>
+                <mat-label style="color: black;">Location</mat-label>
+                <mat-select [required]="true" style="color: black;">
+                    <mat-option *ngFor="let location of locations" [value]="location">
+                        {{ location }}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.controls['location'].invalid">{{ errorMessage('location') }}</mat-error>
+            </mat-form-field>
+  
         </div>
     </form>
 </div>
