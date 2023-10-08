@@ -1,5 +1,5 @@
 .table-container {
-  margin-top: 5%;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,6 +8,10 @@
 
 .applications-table {
   width: 100%;
+}
+
+.button-container {
+  margin-bottom: 20px;
 }
 
 .add-button {
@@ -27,12 +31,12 @@
     height: 30px;
   }
 
-  .table-container {
-    overflow-x: scroll;
+  .button-container {
+    margin: 10px 0px 10px 0px;
   }
 
-  .button-container {
-    margin-top: 10px;
+  .applications-table {
+    overflow-x: scroll;
   }
 }
 
