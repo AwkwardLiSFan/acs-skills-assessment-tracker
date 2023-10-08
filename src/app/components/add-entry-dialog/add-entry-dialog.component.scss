@@ -1,0 +1,19 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-layout {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.mat-mdc-select-arrow {
+    color: black !important;
+}

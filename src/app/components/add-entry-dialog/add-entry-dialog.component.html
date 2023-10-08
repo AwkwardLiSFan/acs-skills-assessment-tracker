@@ -1,0 +1,20 @@
+<div class="dialog">
+    <h1 class="dialog-title">Log Entry</h1>
+    <div mat-dialog-content class="form-container"></div>
+    <form [formGroup]="form" (ngSubmit)="save()" class="form-layout">
+        <div class="form-fields">
+
+            <!-- ANZSCO code -->
+            <mat-form-field>
+                <mat-label style="color: black;">ANZSCO</mat-label>
+                <mat-select style="color: black;">
+                    <mat-option *ngFor="let code of codes | keyvalue" [value]="code.key" style="color: black">
+                        {{ code.key }} - {{ code.value }}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.controls['anzsco'].invalid">{{ errorMessage('anzsco') }}</mat-error>
+            </mat-form-field>
+
+        </div>
+    </form>
+</div>

@@ -5,12 +5,12 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { DateTime } from "luxon";
 
-
 type TableEntry = {
   anzsco_code: string,
   date_submitted: string,
   date_received: string,
   days_taken: number,
+  outcome: boolean,
   stream: string,
   location: string
 }
@@ -27,7 +27,7 @@ export class ApplicationsTableComponent {
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
 
   // Table data
-  displayedColumns: Array<string> = ['anzsco', 'date_submitted', 'date_received', 'days_taken', 'stream', 'location'];
+  displayedColumns: Array<string> = ['anzsco', 'date_submitted', 'date_received', 'days_taken', 'outcome', 'stream', 'location'];
   dataSource: MatTableDataSource<TableEntry>;
 
   constructor(
@@ -40,6 +40,7 @@ export class ApplicationsTableComponent {
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
+        outcome: true,
         stream: "PAS",
         location: "Onshore"
       },
@@ -48,6 +49,7 @@ export class ApplicationsTableComponent {
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
+        outcome: true,
         stream: "PAS",
         location: "Offshore"
       },
@@ -56,6 +58,7 @@ export class ApplicationsTableComponent {
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
+        outcome: false,
         stream: "PAS",
         location: "Offshore"
       },
@@ -64,6 +67,7 @@ export class ApplicationsTableComponent {
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
+        outcome: false,
         stream: "PAS",
         location: "Offshore"
       },
@@ -72,6 +76,7 @@ export class ApplicationsTableComponent {
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
+        outcome: false,
         stream: "PAS",
         location: "Onshore"
       },
@@ -80,6 +85,7 @@ export class ApplicationsTableComponent {
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
+        outcome: true,
         stream: "PAS",
         location: "Onshore"
       },
@@ -88,6 +94,7 @@ export class ApplicationsTableComponent {
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
+        outcome: false,
         stream: "PAS",
         location: "Onshore"
       },
@@ -96,6 +103,7 @@ export class ApplicationsTableComponent {
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
+        outcome: true,
         stream: "PAS",
         location: "Onshore"
       },
@@ -104,6 +112,7 @@ export class ApplicationsTableComponent {
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
+        outcome: true,
         stream: "PAS",
         location: "Onshore"
       },
@@ -112,6 +121,7 @@ export class ApplicationsTableComponent {
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
+        outcome: true,
         stream: "Diploma",
         location: "Onshore"
       },
@@ -120,6 +130,7 @@ export class ApplicationsTableComponent {
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
+        outcome: false,
         stream: "General",
         location: "Offshore"
       },
@@ -128,6 +139,7 @@ export class ApplicationsTableComponent {
         date_submitted: new Date("14 August 2023").toISOString(),
         date_received: new Date("14 November 2023").toISOString(),
         days_taken: this.findDateDiff(new Date("14 August 2023").toISOString(), new Date("14 November 2023").toISOString()),
+        outcome: true,
         stream: "PAS",
         location: "Offshore"
       }
