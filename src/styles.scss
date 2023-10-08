@@ -79,7 +79,7 @@ body {
 
 body {
   margin: 0;
-  font-family: "Jetbrains Mono", "Helvetica Neue", sans-serif !important;
+  font-family: "Jetbrains", "Helvetica Neue", sans-serif !important;
   background: $image-panel-bg;
   display: flex;
   flex-direction: column;
@@ -87,14 +87,8 @@ body {
   align-items: center;
 }
 
-// Enforce Eina font for all table/card/dropdown elements across the app
-.mat-select, .mat-option, .mat-card, .mat-table {
-  font-family: "Jetbrains Mono";
-}
-
-
 .mat-mdc-header-row {
-  font-family: "Jetbrains Mono", "Helvetica Neue", sans-serif !important;
+  font-family: "Jetbrains", "Helvetica Neue", sans-serif !important;
 }
 
 .app-container {
@@ -105,6 +99,58 @@ body {
   background: $image-panel-bg;
 }
 
+.dialog {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 600px;
+  background-color: #ddd9d4;
+  padding: 35px;
+  border-radius: 4px;
+}
+
+.dialog-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Global styles for material elements */
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background: #ddd9d4 !important;
+  color: black !important;
+  border: 2px solid black !important;
+}
+
+.mdc-line-ripple {
+  display: none;
+}
+
+.mat-mdc-select-panel { 
+  background: $image-panel-bg !important;
+}
+
+.mdc-list-item__primary-text {
+  color: #ffffff !important;
+}
+
+.mat-calendar {
+  background-color: #141312;
+}
+
+.mat-datepicker-input, .mat-datepicker-toggle, .mat-mdc-form-field-required-marker {
+  color: black !important;
+}
+
+.mat-mdc-select-arrow {
+  color: inherit !important;
+}
+
+// .mdc-floating-label, .mat-mdc-select-value-text, .mat-mdc-select-arrow {
+//   color: black !important;
+// }
+
 /* Blur the background when the About dialog is opened */
 .bgClass {
   filter: blur(20px);
@@ -112,11 +158,19 @@ body {
   opacity: 0.4 !important;
 }
 
-/* Custom global styles */
-.mat-mdc-select-panel { 
-  background: $image-panel-bg !important;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-.mdc-list-item__primary-text {
-  color: #ffffff !important;
+::-webkit-scrollbar-track {
+  background: #969595;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #353535;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

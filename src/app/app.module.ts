@@ -11,6 +11,7 @@ import { MaterialModule } from './modules/material/material.module';
 import { DialogComponent } from './common/dialog/dialog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApplicationsTableComponent } from './components/applications-table/applications-table.component';
+import { AddEntryDialogComponent } from './components/add-entry-dialog/add-entry-dialog.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ApplicationsTableComponent } from './components/applications-table/appl
     HomeComponent,
     HeaderComponent,
     DialogComponent,
-    ApplicationsTableComponent
+    ApplicationsTableComponent,
+    AddEntryDialogComponent
   ],
   imports: [
     BrowserModule,

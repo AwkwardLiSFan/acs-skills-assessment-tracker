@@ -15,14 +15,14 @@
 
     <!-- Date Submitted -->
     <ng-container matColumnDef="date_submitted">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Date Submitted</th>
-        <td mat-cell *matCellDef="let element">{{ element.date_submitted | date:'longDate' }}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Submitted</th>
+        <td mat-cell *matCellDef="let element">{{ element.date_submitted | date:'dd LLL yyyy' }}</td>
     </ng-container>
     
     <!-- Date Received -->
     <ng-container matColumnDef="date_received">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Date Received</th>
-        <td mat-cell *matCellDef="let element">{{ element.date_received | date:'longDate' }}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Result</th>
+        <td mat-cell *matCellDef="let element">{{ element.date_received | date:'dd LLL yyyy' }}</td>
     </ng-container>
 
     <!-- Days Taken -->
@@ -31,6 +31,12 @@
         <td mat-cell *matCellDef="let element">{{ element.days_taken }}</td>
     </ng-container>
     
+    <!-- Outcome -->
+    <ng-container matColumnDef="outcome">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Outcome</th>
+        <td mat-cell *matCellDef="let element">{{ element.outcome ? "Positive" : "Negative" }}</td>
+    </ng-container>    
+
     <!-- Stream -->
     <ng-container matColumnDef="stream">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Stream</th>
