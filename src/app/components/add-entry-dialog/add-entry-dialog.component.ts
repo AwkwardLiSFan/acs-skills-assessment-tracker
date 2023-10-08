@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
 export const anzscoCodes: Map<number, string> = new Map<number, string>([
   [261311, "Analyst Programmer"],
@@ -44,6 +45,15 @@ export const potentialLocations: Array<string> = [
   "Offshore"
 ];
 
+export interface FormFields {
+  anzsco: string,
+  dateSubmitted: string,
+  dateReceived: string,
+  outcome: boolean,
+  stream: string,
+  location: string
+}
+
 @Component({
   selector: 'app-add-entry-dialog',
   templateUrl: './add-entry-dialog.component.html',
@@ -59,29 +69,34 @@ export class AddEntryDialogComponent {
 
   // Setup form controls
   public form: FormGroup = this.formBuilder.group({
-    anzsco: ['', [Validators.required, Validators.email]],
+    anzsco: ['', Validators.required],
     dateSubmitted: ['', Validators.required],
     dateReceived: ['', Validators.required],
-    daysTaken: ['', Validators.required],
     outcome: ['', Validators.required],
     stream: ['', Validators.required],
     location: ['', Validators.required]
   });
 
   constructor (
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public dialogRef: MatDialogRef<AddEntryDialogComponent>,
   ) {}
 
   /** Saves the entry to the database */
   public save(): void {
-    console.log(`Pass`);
+    const formData: FormFields = {
+      anzsco: this.form.controls['anzsco'].value,
+      dateSubmitted: this.form.controls['dateSubmitted'].value,
+      dateReceived: this.form.controls['dateReceived'].value,
+      outcome: this.form.controls['outcome'].value === "Positive" ? true : false,
+      stream: this.form.controls['stream'].value,
+      location: this.form.controls['location'].value
+    };
+    console.log(`Form data received: ${JSON.stringify(formData)}`);
   }
 
-  /** Returns an error message for invalid responses */
-  errorMessage(formControlName: string) {
-    if (this.form.controls[`${formControlName}`].hasError('required')) {
-      return 'You must enter a valid value';
-    }
-    return this.form.controls[`${formControlName}`].hasError(`${formControlName}`) ? 'Not a valid response' : '';
+  /** Close dialog and return to table view */
+  public close(): void {
+    this.dialogRef.close();
   }
 }
