@@ -3,9 +3,9 @@
 // Custom Theming for Angular Material
 
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 @import "@angular/material/theming";
-@import './styling/palettes.scss';
+@import "./styling/palettes.scss";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -15,7 +15,13 @@
 @include mat-core();
 
 // Define a custom function for building a dark theme
-@function create-custom-dark-theme($primary, $accent, $warn, $foreground, $background) {
+@function create-custom-dark-theme(
+  $primary,
+  $accent,
+  $warn,
+  $foreground,
+  $background
+) {
   @return (
     primary: $primary,
     accent: $accent,
@@ -127,7 +133,7 @@ body {
   display: none;
 }
 
-.mat-mdc-select-panel { 
+.mat-mdc-select-panel {
   background: $image-panel-bg !important;
 }
 
@@ -139,17 +145,15 @@ body {
   background-color: #141312;
 }
 
-.mat-datepicker-input, .mat-datepicker-toggle, .mat-mdc-form-field-required-marker {
+.mat-datepicker-input,
+.mat-datepicker-toggle,
+.mat-mdc-form-field-required-marker {
   color: black !important;
 }
 
 .mat-mdc-select-arrow {
   color: inherit !important;
 }
-
-// .mdc-floating-label, .mat-mdc-select-value-text, .mat-mdc-select-arrow {
-//   color: black !important;
-// }
 
 /* Blur the background when the About dialog is opened */
 .bgClass {
@@ -161,16 +165,38 @@ body {
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #969595;
+  background: #353535;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #353535;
+  background: #969595;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@media only screen and (max-width: 1000px) {
+  .app-container {
+    width: 100vw;
+  }
+
+  .dialog {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 275px;
+    background-color: #ddd9d4;
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .dialog-title {
+    font-size: 20px;
+  }
 }

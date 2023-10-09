@@ -1,18 +1,30 @@
 .col-header {
-    font-size: 22px;
-    font-weight: 600;
+  font-size: 22px;
+  font-weight: 600;
 }
 
 .content-row {
-    font-size: 18px;
-    font-family: "Jetbrains";
+  font-size: 18px;
+  font-family: "Jetbrains";
 }
 
 .applications-table {
-    background-color: #141312;
+  background-color: #141312;
+  overflow-x: auto;
 }
 
 .paginator-section {
-    background-color: #141312;
-    margin-top: 20px;   
+  background-color: #141312;
+  margin: 20px 0px 20px 0px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .col-header {
+    font-size: 14px;
+  }
+
+  .content-row,
+  .paginator-section {
+    font-size: 12px;
+  }
 }

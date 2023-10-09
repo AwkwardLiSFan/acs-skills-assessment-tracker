@@ -1,40 +1,48 @@
 .form-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-layout {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-fields {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
 }
 
 .buttons-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
 }
 
 .action-button {
-    min-width: 40%;
-    min-height: 50px;
-    font-size: 18px;
-    font-family: "Jetbrains";
-    color: white;
+  width: 40%;
+  height: 50px;
+  font-size: 18px;
+  font-family: "Jetbrains";
+  color: white;
 }
 
 .submit-button {
-    background-color: #1bab40;
-    &:disabled {
-        background-color: gray;
-        color: black;
-        opacity: 0.6;
-    }
+  background-color: #1bab40;
+  &:disabled {
+    background-color: gray;
+    color: black;
+    opacity: 0.6;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .action-button {
+    max-width: 20% !important;
+    max-height: 30px !important;
+    font-size: 14px;
+  }
 }

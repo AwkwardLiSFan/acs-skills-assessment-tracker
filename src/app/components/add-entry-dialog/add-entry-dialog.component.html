@@ -1,73 +1,115 @@
 <div class="dialog">
-    <h1 class="dialog-title">Log Entry</h1>
-    <div mat-dialog-content class="form-container"></div>
-    <form [formGroup]="form" (ngSubmit)="save()" class="form-layout">
-        <div class="form-fields">
+  <h1 class="dialog-title">Log Entry</h1>
+  <div mat-dialog-content class="form-container"></div>
+  <form [formGroup]="form" (ngSubmit)="save()" class="form-layout">
+    <div class="form-fields">
+      <!-- ANZSCO code -->
+      <mat-form-field>
+        <mat-label style="color: black">ANZSCO</mat-label>
+        <mat-select
+          [required]="true"
+          formControlName="anzsco"
+          style="color: black"
+        >
+          <mat-option *ngFor="let code of codes | keyvalue" [value]="code.key">
+            {{ code.key }} - {{ code.value }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-            <!-- ANZSCO code -->
-            <mat-form-field>
-                <mat-label style="color: black;">ANZSCO</mat-label>
-                <mat-select [required]="true" formControlName="anzsco" style="color: black;">
-                    <mat-option *ngFor="let code of codes | keyvalue" [value]="code.key">
-                        {{ code.key }} - {{ code.value }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
+      <!-- Date Application Submitted -->
+      <mat-form-field>
+        <mat-label style="color: black">Submitted On</mat-label>
+        <input
+          [required]="true"
+          formControlName="dateSubmitted"
+          matInput
+          [matDatepicker]="submittedPicker"
+        />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="submittedPicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #submittedPicker></mat-datepicker>
+      </mat-form-field>
 
-            <!-- Date Application Submitted -->
-            <mat-form-field>
-                <mat-label style="color: black;">Submitted On</mat-label>
-                <input [required]="true" formControlName="dateSubmitted" matInput [matDatepicker]="submittedPicker">
-                <mat-datepicker-toggle matIconSuffix [for]="submittedPicker"></mat-datepicker-toggle>
-                <mat-datepicker #submittedPicker></mat-datepicker>
-            </mat-form-field>
+      <!-- Date Result Received -->
+      <mat-form-field>
+        <mat-label style="color: black">Received On</mat-label>
+        <input
+          [required]="true"
+          formControlName="dateReceived"
+          matInput
+          [matDatepicker]="receivedPicker"
+        />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="receivedPicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #receivedPicker></mat-datepicker>
+      </mat-form-field>
 
-            <!-- Date Result Received -->
-            <mat-form-field>
-                <mat-label style="color: black;">Received On</mat-label>
-                <input [required]="true" formControlName="dateReceived" matInput [matDatepicker]="receivedPicker">
-                <mat-datepicker-toggle matIconSuffix [for]="receivedPicker"></mat-datepicker-toggle>
-                <mat-datepicker #receivedPicker></mat-datepicker>
-            </mat-form-field>
+      <!-- Outcome -->
+      <mat-form-field>
+        <mat-label style="color: black">Outcome</mat-label>
+        <mat-select
+          [required]="true"
+          formControlName="outcome"
+          style="color: black"
+        >
+          <mat-option *ngFor="let outcome of outcomes" [value]="outcome">
+            {{ outcome }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-            <!-- Outcome -->
-            <mat-form-field>
-                <mat-label style="color: black;">Outcome</mat-label>
-                <mat-select [required]="true" formControlName="outcome" style="color: black;">
-                    <mat-option *ngFor="let outcome of outcomes" [value]="outcome">
-                        {{ outcome }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>   
+      <!-- Stream -->
+      <mat-form-field>
+        <mat-label style="color: black">Stream</mat-label>
+        <mat-select
+          [required]="true"
+          formControlName="stream"
+          style="color: black"
+        >
+          <mat-option *ngFor="let stream of streams" [value]="stream">
+            {{ stream }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-            <!-- Stream -->
-            <mat-form-field>
-                <mat-label style="color: black;">Stream</mat-label>
-                <mat-select [required]="true" formControlName="stream" style="color: black;">
-                    <mat-option *ngFor="let stream of streams" [value]="stream">
-                        {{ stream }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>   
-
-            <!-- Location -->
-            <mat-form-field>
-                <mat-label style="color: black;">Location</mat-label>
-                <mat-select [required]="true" formControlName="location" style="color: black;">
-                    <mat-option *ngFor="let location of locations" [value]="location">
-                        {{ location }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-        <!-- Buttons  -->
-        <div class="buttons-container">
-            <button mat-raised-button class="action-button" type="button" (click)="close()">
-                Cancel
-            </button>
-            <button mat-raised-button class="action-button submit-button" type="submit" [disabled]="form.invalid" color="accent">
-                Submit
-            </button>
-        </div>        
-    </form>
+      <!-- Location -->
+      <mat-form-field>
+        <mat-label style="color: black">Location</mat-label>
+        <mat-select
+          [required]="true"
+          formControlName="location"
+          style="color: black"
+        >
+          <mat-option *ngFor="let location of locations" [value]="location">
+            {{ location }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <!-- Buttons  -->
+    <div class="buttons-container">
+      <button
+        mat-raised-button
+        class="action-button"
+        type="button"
+        (click)="close()"
+      >
+        Cancel
+      </button>
+      <button
+        mat-raised-button
+        class="action-button submit-button"
+        type="submit"
+        [disabled]="form.invalid"
+        color="accent"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
 </div>
