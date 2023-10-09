@@ -1,71 +1,71 @@
 .header-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-    background-color: #000000;
-    padding: 10px;
-    height: 40px;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  background-color: #000000;
+  padding: 10px;
+  height: 40px;
+  flex-wrap: wrap;
 }
-  
+
 .header-text {
-    color: #ecf4d7;
-    padding: 10px;
-    border-radius: 4px;
-    font-size: 25px;
-    font-weight: 600;
+  color: #ecf4d7;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 25px;
+  font-weight: 600;
 }
 
 .icon-container {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .icon-link {
-    display: flex;
+  display: flex;
 }
 
 .header-icon {
-    color: white;
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    flex-wrap: wrap;
-    font-size: 30px;
-    margin: 10px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  flex-wrap: wrap;
+  font-size: 30px;
+  margin: 10px;
 }
 
 .header-icon:hover {
-    transform: scale(1.1);
-    color: #db6e00;
-    cursor: pointer;
+  transform: scale(1.1);
+  color: #db6e00;
+  cursor: pointer;
 }
 
 /* Resize header for screen widths <900px */
 @media screen and (max-width: 1000px) {
-    .header-text {
-        font-size: 14px;
-    }
+  .header-text {
+    font-size: 14px;
+  }
 
-    .header-icon {
-        font-size: 18px;
-    }
+  .header-icon {
+    font-size: 18px;
+  }
 }
 
 /* Resize header for screen widths <350px */
 @media screen and (max-width: 350px) {
-    .header-text {
-        font-size: 12px;
-    }
+  .header-text {
+    font-size: 12px;
+  }
 
-    .header-icon {
-        font-size: 16px;
-        margin: 4px;
-    }
+  .header-icon {
+    font-size: 16px;
+    margin: 4px;
+  }
 
-    .header-container {
-        padding: 5px;
-        height: 20px;
-    }
+  .header-container {
+    padding: 5px;
+    height: 20px;
+  }
 }

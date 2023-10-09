@@ -1,21 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ApplicationsTableComponent } from './applications-table.component';
+import { ApplicationsTableComponent } from "./applications-table.component";
 
-describe('ApplicationsTableComponent', () => {
+describe("ApplicationsTableComponent", () => {
   let component: ApplicationsTableComponent;
   let fixture: ComponentFixture<ApplicationsTableComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ApplicationsTableComponent]
+      declarations: [ApplicationsTableComponent],
     });
     fixture = TestBed.createComponent(ApplicationsTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

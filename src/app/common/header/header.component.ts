@@ -1,17 +1,16 @@
-import { Component } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { IconDefinition, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
-import { DialogComponent } from '../dialog/dialog.component';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from "@angular/core";
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { IconDefinition, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import { DialogComponent } from "../dialog/dialog.component";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.scss"],
 })
-export class HeaderComponent {
-
+export class HeaderComponent implements OnInit {
   // define icons for use in header
   public githubIcon: IconDefinition = faGithub;
   public helpIcon: IconDefinition = faQuestionCircle;
@@ -24,12 +23,13 @@ export class HeaderComponent {
 
   constructor(
     private http: HttpClient,
-    private dialog: MatDialog
+    private dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {
-    this.http.get('assets/about.txt', {responseType: 'text'})
-    .subscribe(data => this.aboutText = data);
+    this.http
+      .get("assets/about.txt", { responseType: "text" })
+      .subscribe((data) => (this.aboutText = data));
   }
 
   /**
@@ -40,9 +40,9 @@ export class HeaderComponent {
     this.dialogConfig.autoFocus = true;
     this.dialogConfig.data = {
       title: "ABOUT",
-      message: this.aboutText
+      message: this.aboutText,
     };
-    this.dialogConfig.backdropClass = 'bgClass';
+    this.dialogConfig.backdropClass = "bgClass";
   }
 
   /**
@@ -52,5 +52,4 @@ export class HeaderComponent {
     this.setDialogConfig();
     this.dialog.open(DialogComponent, this.dialogConfig);
   }
-
 }
