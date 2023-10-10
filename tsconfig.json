@@ -11,6 +11,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    "esModuleInterop": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,

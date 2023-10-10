@@ -5,6 +5,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { MatPaginator } from "@angular/material/paginator";
 import { DateTime } from "luxon";
 import { BreakpointObserver, BreakpointState } from "@angular/cdk/layout";
+// import { DatabaseService } from "src/app/services/database/database.service";
 
 type TableEntry = {
   anzsco_code: string;
@@ -44,7 +45,8 @@ export class ApplicationsTableComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     public breakpointObserver: BreakpointObserver,
-  ) {
+  ) // private dbService: DatabaseService
+  {
     // test data
     const data: TableEntry[] = [
       {
@@ -205,10 +207,7 @@ export class ApplicationsTableComponent implements OnInit {
       .observe(["(max-width: 1000px)"])
       .subscribe((state: BreakpointState) => {
         if (state.matches) {
-          console.log("Viewport width is 1000px or less!");
           this.resizeTable = true;
-        } else {
-          console.log("Viewport width is greater than 1000px!");
         }
       });
   }
