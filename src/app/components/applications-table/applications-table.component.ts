@@ -1,21 +1,12 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { MatPaginator } from "@angular/material/paginator";
 import { DateTime } from "luxon";
 import { BreakpointObserver, BreakpointState } from "@angular/cdk/layout";
-// import { DatabaseService } from "src/app/services/database/database.service";
-
-type TableEntry = {
-  anzsco_code: string;
-  date_submitted: string;
-  date_received: string;
-  days_taken: number | undefined;
-  outcome: boolean;
-  stream: string;
-  location: string;
-};
+import { GetAllEntriesGQL } from "src/app/graphql/graphql-codegen-generated";
+import { map } from "rxjs";
 
 @Component({
   selector: "app-applications-table",
@@ -24,183 +15,20 @@ type TableEntry = {
 })
 export class ApplicationsTableComponent implements OnInit {
   // Table controls
-  @ViewChild(MatSort, { static: true }) sort!: MatSort;
-  @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
   // Table data
-  displayedColumns: Array<string> = [
-    "anzsco",
-    "date_submitted",
-    "date_received",
-    "days_taken",
-    "outcome",
-    "stream",
-    "location",
-  ];
-  dataSource: MatTableDataSource<TableEntry>;
+  public displayedColumns: Array<string> = [];
+  public dataSource: MatTableDataSource<any> = new MatTableDataSource();
 
   // Track screen size
   public resizeTable = false;
 
   constructor(
-    private dialog: MatDialog,
     public breakpointObserver: BreakpointObserver,
-  ) // private dbService: DatabaseService
-  {
-    // test data
-    const data: TableEntry[] = [
-      {
-        anzsco_code: "261313",
-        date_submitted: new Date("14 August 2023").toISOString(),
-        date_received: new Date("14 November 2023").toISOString(),
-        days_taken: this.findDateDiff(
-          new Date("14 August 2023").toISOString(),
-          new Date("14 November 2023").toISOString(),
-        ),
-        outcome: true,
-        stream: "PAS",
-        location: "Onshore",
-      },
-      {
-        anzsco_code: "261313",
-        date_submitted: new Date("14 August 2023").toISOString(),
-        date_received: new Date("14 November 2023").toISOString(),
-        days_taken: this.findDateDiff(
-          new Date("14 August 2023").toISOString(),
-          new Date("14 November 2023").toISOString(),
-        ),
-        outcome: true,
-        stream: "PAS",
-        location: "Offshore",
-      },
-      {
-        anzsco_code: "261313",
-        date_submitted: new Date("14 August 2023").toISOString(),
-        date_received: new Date("14 November 2023").toISOString(),
-        days_taken: this.findDateDiff(
-          new Date("14 August 2023").toISOString(),
-          new Date("14 November 2023").toISOString(),
-        ),
-        outcome: false,
-        stream: "PAS",
-        location: "Offshore",
-      },
-      {
-        anzsco_code: "261313",
-        date_submitted: new Date("14 August 2023").toISOString(),
-        date_received: new Date("14 November 2023").toISOString(),
-        days_taken: this.findDateDiff(
-          new Date("14 August 2023").toISOString(),
-          new Date("14 November 2023").toISOString(),
-        ),
-        outcome: false,
-        stream: "PAS",
-        location: "Offshore",
-      },
-      {
-        anzsco_code: "261313",
-        date_submitted: new Date("14 August 2023").toISOString(),
-        date_received: new Date("14 November 2023").toISOString(),
-        days_taken: this.findDateDiff(
-          new Date("14 August 2023").toISOString(),
-          new Date("14 November 2023").toISOString(),
-        ),
-        outcome: false,
-        stream: "PAS",
-        location: "Onshore",
-      },
-      {
-        anzsco_code: "261313",
-        date_submitted: new Date("14 August 2023").toISOString(),
-        date_received: new Date("14 November 2023").toISOString(),
-        days_taken: this.findDateDiff(
-          new Date("14 August 2023").toISOString(),
-          new Date("14 November 2023").toISOString(),
-        ),
-        outcome: true,
-        stream: "PAS",
-        location: "Onshore",
-      },
-      {
-        anzsco_code: "261313",
-        date_submitted: new Date("14 August 2023").toISOString(),
-        date_received: new Date("14 November 2023").toISOString(),
-        days_taken: this.findDateDiff(
-          new Date("14 August 2023").toISOString(),
-          new Date("14 November 2023").toISOString(),
-        ),
-        outcome: false,
-        stream: "PAS",
-        location: "Onshore",
-      },
-      {
-        anzsco_code: "261313",
-        date_submitted: new Date("14 August 2023").toISOString(),
-        date_received: new Date("14 November 2023").toISOString(),
-        days_taken: this.findDateDiff(
-          new Date("14 August 2023").toISOString(),
-          new Date("14 November 2023").toISOString(),
-        ),
-        outcome: true,
-        stream: "PAS",
-        location: "Onshore",
-      },
-      {
-        anzsco_code: "261313",
-        date_submitted: new Date("14 August 2023").toISOString(),
-        date_received: new Date("14 November 2023").toISOString(),
-        days_taken: this.findDateDiff(
-          new Date("14 August 2023").toISOString(),
-          new Date("14 November 2023").toISOString(),
-        ),
-        outcome: true,
-        stream: "PAS",
-        location: "Onshore",
-      },
-      {
-        anzsco_code: "261313",
-        date_submitted: new Date("14 August 2023").toISOString(),
-        date_received: new Date("14 November 2023").toISOString(),
-        days_taken: this.findDateDiff(
-          new Date("14 August 2023").toISOString(),
-          new Date("14 November 2023").toISOString(),
-        ),
-        outcome: true,
-        stream: "Diploma",
-        location: "Onshore",
-      },
-      {
-        anzsco_code: "261313",
-        date_submitted: new Date("14 August 2023").toISOString(),
-        date_received: new Date("14 November 2023").toISOString(),
-        days_taken: this.findDateDiff(
-          new Date("14 August 2023").toISOString(),
-          new Date("14 November 2023").toISOString(),
-        ),
-        outcome: false,
-        stream: "General",
-        location: "Offshore",
-      },
-      {
-        anzsco_code: "261313",
-        date_submitted: new Date("14 August 2023").toISOString(),
-        date_received: new Date("14 November 2023").toISOString(),
-        days_taken: this.findDateDiff(
-          new Date("14 August 2023").toISOString(),
-          new Date("14 November 2023").toISOString(),
-        ),
-        outcome: true,
-        stream: "PAS",
-        location: "Offshore",
-      },
-    ];
-
-    this.dataSource = new MatTableDataSource(data);
-    setTimeout(() => {
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-    }, 100);
-  }
+    private getAllEntriesQuery: GetAllEntriesGQL,
+  ) {}
 
   ngOnInit(): void {
     this.breakpointObserver
@@ -209,6 +37,32 @@ export class ApplicationsTableComponent implements OnInit {
         if (state.matches) {
           this.resizeTable = true;
         }
+      });
+
+    this.fetchTableEntries();
+  }
+
+  /**
+   * Runs GraphQL query to fetch all table entries from the MongoDB Atlas Collection
+   */
+  private fetchTableEntries(): void {
+    this.getAllEntriesQuery
+      .fetch()
+      .pipe(map((response) => response.data.applications))
+      .subscribe((data) => {
+        this.dataSource = new MatTableDataSource(data);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+
+        this.displayedColumns = [
+          "anzsco_code",
+          "submitted_on",
+          "received_on",
+          "days",
+          "outcome",
+          "stream",
+          "location",
+        ];
       });
   }
 

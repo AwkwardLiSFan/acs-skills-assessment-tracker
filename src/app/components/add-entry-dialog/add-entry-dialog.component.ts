@@ -26,6 +26,7 @@ export const anzscoCodes: Map<number, string> = new Map<number, string>([
   [261112, "Systems Analysts"],
   [313113, "Web Administrator"],
   [261212, "Web Developer"],
+  [263111, "Computer Network and Systems Engineer"],
 ]);
 
 export const potentialOutcomes: Array<string> = ["Positive", "Negative"];

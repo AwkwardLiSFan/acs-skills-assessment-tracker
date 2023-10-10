@@ -1,0 +1,13 @@
+# Where to get schema data
+schema:
+  - schema.graphql
+# The client-side queries to turn into services
+documents:
+  - src/**/*.graphql
+# Where to output the services and the list of plugins
+generates:
+  ./src/app/graphql/graphql-codegen-generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-apollo-angular

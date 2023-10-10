@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "graphql-codegen": "gql-gen"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +30,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@graphql-codegen/typescript-apollo-angular": "^4.0.0",
     "angular-server-side-configuration": "^16.0.0",
     "apollo-angular": "^5.0.2",
     "graphql": "^16",
@@ -50,6 +52,9 @@
     "@angular/compiler-cli": "^16.2.0",
     "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.7.0",
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
     "@types/jasmine": "~4.3.0",
     "@types/luxon": "^3.3.2",
     "@types/node": "^20.8.3",

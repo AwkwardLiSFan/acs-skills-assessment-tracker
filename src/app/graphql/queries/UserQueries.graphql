@@ -1,0 +1,12 @@
+query GetAllEntries {
+  applications {
+    _id
+    anzsco_code
+    days
+    location
+    outcome
+    received_on
+    stream
+    submitted_on
+  }
+}

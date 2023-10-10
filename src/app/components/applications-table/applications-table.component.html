@@ -4,11 +4,11 @@
   mat-table
   [dataSource]="dataSource"
   matSort
-  matSortActive="name"
+  matSortActive="anzsco_code"
   matSortDirection="asc"
 >
   <!-- ANZSCO Code -->
-  <ng-container matColumnDef="anzsco">
+  <ng-container matColumnDef="anzsco_code">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>
       {{ resizeTable ? "ANZSCO" : "ANZSCO Code" }}
     </th>
@@ -16,33 +16,33 @@
   </ng-container>
 
   <!-- Date Submitted -->
-  <ng-container matColumnDef="date_submitted">
+  <ng-container matColumnDef="submitted_on">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Submitted</th>
     <td mat-cell *matCellDef="let element">
       {{
         resizeTable
-          ? (element.date_submitted | date: "dd/MM/yy")
-          : (element.date_submitted | date: "dd LLL yyyy")
+          ? (element.submitted_on | date: "dd/MM/yy")
+          : (element.submitted_on | date: "dd LLL yyyy")
       }}
     </td>
   </ng-container>
 
   <!-- Date Received -->
-  <ng-container matColumnDef="date_received">
+  <ng-container matColumnDef="received_on">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Result</th>
     <td mat-cell *matCellDef="let element">
       {{
         resizeTable
-          ? (element.date_received | date: "dd/MM/yy")
-          : (element.date_received | date: "dd LLL yyyy")
+          ? (element.received_on | date: "dd/MM/yy")
+          : (element.received_on | date: "dd LLL yyyy")
       }}
     </td>
   </ng-container>
 
   <!-- Days Taken -->
-  <ng-container matColumnDef="days_taken">
+  <ng-container matColumnDef="days">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Days</th>
-    <td mat-cell *matCellDef="let element">{{ element.days_taken }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.days }}</td>
   </ng-container>
 
   <!-- Outcome -->
