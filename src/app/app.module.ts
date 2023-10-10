@@ -13,6 +13,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { ApplicationsTableComponent } from "./components/applications-table/applications-table.component";
 import { AddEntryDialogComponent } from "./components/add-entry-dialog/add-entry-dialog.component";
 import { LayoutModule } from "@angular/cdk/layout";
+import { GraphQLModule } from "./graphql.module";
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { LayoutModule } from "@angular/cdk/layout";
     MaterialModule,
     HttpClientModule,
     LayoutModule,
+    GraphQLModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

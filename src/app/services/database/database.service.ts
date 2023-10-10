@@ -1,42 +1,29 @@
-import { Injectable, OnInit } from "@angular/core";
-import Realm from "realm";
-import { Application } from "./schema";
+import { Injectable } from "@angular/core";
+import * as Realm from "realm-web";
 
-const app = new Realm.App({ id: "application-0-hfron" });
-const credentials = Realm.Credentials.anonymous();
-try {
-  const user = await app.logIn(credentials);
-} catch (err) {
-  console.error("Failed to log in", err);
-}
+export const APP_ID = "application-0-hfron";
 
 @Injectable({
   providedIn: "root",
 })
 export class DatabaseService {
-  //   // Connectiong string
-  //   private uri = "mongodb+srv://sohamsevak:GCgpe4eyhd6u9Y7r@cluster.zfxtyo5.mongodb.net/?retryWrites=true&w=majority";
+  // Realm app to interact with MongoDB
+  private app: Realm.App = new Realm.App(APP_ID);
 
-  //   // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-  //   public client = new MongoClient(this.uri, {
-  //     serverApi: {
-  //       version: ServerApiVersion.v1,
-  //       strict: true,
-  //       deprecationErrors: true,
-  //     }
-  //   });
+  /**
+   * Generates an access token for anonymous users accessing the site
+   * @returns access token string
+   */
+  public async getValidAccessToken(): Promise<string> {
+    if (!this.app.currentUser)
+      // If no user is logged in, log in an anonymous user
+      await this.app.logIn(Realm.Credentials.anonymous());
+    // The logged in user's access token might be stale,
+    // Refreshing custom data also refreshes the access token
+    else await this.app.currentUser.refreshCustomData();
 
-  constructor() {
-    this.connect().then(() => {
-      console.log(`Connection established`);
-    });
-  }
-
-  /** Establish connection with the database and run a test ping */
-  private async connect(): Promise<void> {
-    // const realm = await Realm.open({
-    //   schema: [Application],
-    //   sync: { user, flexible: true },
-    // });
+    // Get a valid access token for the current user
+    localStorage.setItem("token", this.app.currentUser!.accessToken!);
+    return this.app.currentUser!.accessToken!;
   }
 }
