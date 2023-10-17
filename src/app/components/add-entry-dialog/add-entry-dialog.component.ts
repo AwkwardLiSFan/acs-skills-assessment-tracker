@@ -136,13 +136,13 @@ export class AddEntryDialogComponent {
       }
     });
 
-    // close dialog
+    // Close dialog with relevant outcome
     this.dialogRef.close();
   }
 
   /** Close dialog and return to table view */
   public close(): void {
-    this.dialogRef.close();
+    this.dialogRef.close("cancel");
   }
 
   /**

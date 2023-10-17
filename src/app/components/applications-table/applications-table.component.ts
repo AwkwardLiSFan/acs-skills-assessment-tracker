@@ -33,9 +33,6 @@ export class ApplicationsTableComponent implements OnInit {
   // Track screen size
   public resizeTable = false;
 
-  // Reload trigger
-  public reloadTrigger = false;
-
   constructor(
     public breakpointObserver: BreakpointObserver,
     private getAllEntriesQuery: GetAllEntriesGQL,
@@ -59,7 +56,12 @@ export class ApplicationsTableComponent implements OnInit {
     this.dialog
       .open(AddEntryDialogComponent, { backdropClass: "bgClass" })
       .afterClosed()
-      .subscribe(() => (this.reloadTrigger = true));
+      .subscribe(() => {
+        // No subscriptions available, refresh table data if required
+        setTimeout(() => {
+          this.fetchTableEntries();
+        }, 1000);
+      });
   }
 
   /**
