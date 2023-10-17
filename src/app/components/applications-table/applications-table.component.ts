@@ -1,12 +1,20 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ViewChild,
+} from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { MatPaginator } from "@angular/material/paginator";
-import { DateTime } from "luxon";
 import { BreakpointObserver, BreakpointState } from "@angular/cdk/layout";
 import { GetAllEntriesGQL } from "src/app/graphql/graphql-codegen-generated";
 import { map } from "rxjs";
+import { AddEntryDialogComponent } from "../add-entry-dialog/add-entry-dialog.component";
 
 @Component({
   selector: "app-applications-table",
@@ -25,9 +33,13 @@ export class ApplicationsTableComponent implements OnInit {
   // Track screen size
   public resizeTable = false;
 
+  // Reload trigger
+  public reloadTrigger = false;
+
   constructor(
     public breakpointObserver: BreakpointObserver,
     private getAllEntriesQuery: GetAllEntriesGQL,
+    private dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {
@@ -40,6 +52,14 @@ export class ApplicationsTableComponent implements OnInit {
       });
 
     this.fetchTableEntries();
+  }
+
+  /** Opens dialog to log a new entry in the table */
+  public addEntry(): void {
+    this.dialog
+      .open(AddEntryDialogComponent, { backdropClass: "bgClass" })
+      .afterClosed()
+      .subscribe(() => (this.reloadTrigger = true));
   }
 
   /**

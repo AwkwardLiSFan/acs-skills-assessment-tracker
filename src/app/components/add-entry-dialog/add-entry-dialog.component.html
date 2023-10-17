@@ -25,6 +25,7 @@
           formControlName="dateSubmitted"
           matInput
           [matDatepicker]="submittedPicker"
+          [max]="upperBound"
         />
         <mat-datepicker-toggle
           matIconSuffix
@@ -41,6 +42,7 @@
           formControlName="dateReceived"
           matInput
           [matDatepicker]="receivedPicker"
+          [max]="upperBound"
         />
         <mat-datepicker-toggle
           matIconSuffix

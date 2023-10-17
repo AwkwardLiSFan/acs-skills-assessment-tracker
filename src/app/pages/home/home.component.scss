@@ -10,39 +10,8 @@
   width: 100%;
 }
 
-.button-container {
-  margin-bottom: 20px;
-}
-
-.add-button {
-  font-size: 22px;
-  border: 2px solid;
-  border-radius: 4px;
-  font-weight: 600;
-  width: 200px;
-  height: 45px;
-  font-family: "Jetbrains", "Helvetica Neue", sans-serif !important;
-}
-
 @media only screen and (max-width: 1000px) {
-  .add-button {
-    font-size: 16px;
-    width: 150px;
-    height: 30px;
-  }
-
-  .button-container {
-    margin: 10px 0px 10px 0px;
-  }
-
   .applications-table {
     overflow-x: scroll;
-  }
-}
-
-/* Resize header for screen widths <350px */
-@media screen and (max-width: 350px) {
-  .button-container {
-    margin-top: 100px;
   }
 }

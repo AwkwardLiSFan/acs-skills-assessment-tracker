@@ -79,6 +79,9 @@ export class AddEntryDialogComponent {
     comment: ["", Validators.nullValidator],
   });
 
+  // Bound date picker
+  public upperBound: Date = new Date();
+
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<AddEntryDialogComponent>,
@@ -108,6 +111,11 @@ export class AddEntryDialogComponent {
         comment: this.form.controls["comment"].value,
       },
     };
+
+    this.snackBar.open("Successfully added new entry", "X", {
+      duration: 2000,
+      panelClass: ["success-snackbar"],
+    });
 
     // Call mutation to save entry to database
     this.addEntryMutation.mutate(variables).subscribe((result) => {

@@ -202,16 +202,24 @@ body {
 }
 
 // Snackbar styling
+@mixin snackbar-common {
+  font-weight: 500;
+  font-size: 18px;
+  font-family: "Jetbrains";
+}
+
 .success-snackbar {
-  background: #52504d;
-  color: green;
-  font-weight: 400;
-  font-family: "Jetbrains Mono";
+  @include snackbar-common();
+  .mat-mdc-snack-bar-label,
+  button {
+    color: green !important;
+  }
 }
 
 .failure-snackbar {
-  background: #52504d;
-  color: red;
-  font-weight: 400;
-  font-family: "Jetbrains Mono";
+  @include snackbar-common();
+  .mat-mdc-snack-bar-label,
+  button {
+    color: red !important;
+  }
 }
