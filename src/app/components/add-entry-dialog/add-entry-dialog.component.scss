@@ -39,6 +39,14 @@
   }
 }
 
+.comment-box {
+  color: black !important;
+}
+
+.comment-box::placeholder {
+  color: rgb(68, 67, 67) !important;
+}
+
 @media only screen and (max-width: 1000px) {
   .action-button {
     max-width: 20% !important;

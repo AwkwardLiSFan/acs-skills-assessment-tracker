@@ -200,3 +200,18 @@ body {
     font-size: 20px;
   }
 }
+
+// Snackbar styling
+.success-snackbar {
+  background: #52504d;
+  color: green;
+  font-weight: 400;
+  font-family: "Jetbrains Mono";
+}
+
+.failure-snackbar {
+  background: #52504d;
+  color: red;
+  font-weight: 400;
+  font-family: "Jetbrains Mono";
+}

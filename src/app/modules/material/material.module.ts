@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatTableModule } from "@angular/material/table";
 import { MatPaginatorModule } from "@angular/material/paginator";
@@ -33,6 +34,7 @@ import {
     MatInputModule,
     MatLuxonDateModule,
     MatSortModule,
+    MatSnackBarModule,
   ],
   exports: [
     MatDialogModule,
@@ -47,6 +49,7 @@ import {
     MatInputModule,
     MatLuxonDateModule,
     MatSortModule,
+    MatSnackBarModule,
   ],
   providers: [
     {

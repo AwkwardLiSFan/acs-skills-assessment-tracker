@@ -36,6 +36,7 @@ export type Application = {
   __typename?: "Application";
   _id: Scalars["ObjectId"]["output"];
   anzsco_code: Scalars["String"]["output"];
+  comment?: Maybe<Scalars["String"]["output"]>;
   days: Scalars["Int"]["output"];
   location: Scalars["String"]["output"];
   outcome: Scalars["Boolean"]["output"];
@@ -47,6 +48,7 @@ export type Application = {
 export type ApplicationInsertInput = {
   _id?: InputMaybe<Scalars["ObjectId"]["input"]>;
   anzsco_code: Scalars["String"]["input"];
+  comment?: InputMaybe<Scalars["String"]["input"]>;
   days: Scalars["Int"]["input"];
   location: Scalars["String"]["input"];
   outcome: Scalars["Boolean"]["input"];
@@ -76,6 +78,15 @@ export type ApplicationQueryInput = {
   anzsco_code_lte?: InputMaybe<Scalars["String"]["input"]>;
   anzsco_code_ne?: InputMaybe<Scalars["String"]["input"]>;
   anzsco_code_nin?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  comment?: InputMaybe<Scalars["String"]["input"]>;
+  comment_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
+  comment_gt?: InputMaybe<Scalars["String"]["input"]>;
+  comment_gte?: InputMaybe<Scalars["String"]["input"]>;
+  comment_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  comment_lt?: InputMaybe<Scalars["String"]["input"]>;
+  comment_lte?: InputMaybe<Scalars["String"]["input"]>;
+  comment_ne?: InputMaybe<Scalars["String"]["input"]>;
+  comment_nin?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
   days?: InputMaybe<Scalars["Int"]["input"]>;
   days_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
   days_gt?: InputMaybe<Scalars["Int"]["input"]>;
@@ -131,6 +142,8 @@ export type ApplicationQueryInput = {
 export enum ApplicationSortByInput {
   AnzscoCodeAsc = "ANZSCO_CODE_ASC",
   AnzscoCodeDesc = "ANZSCO_CODE_DESC",
+  CommentAsc = "COMMENT_ASC",
+  CommentDesc = "COMMENT_DESC",
   DaysAsc = "DAYS_ASC",
   DaysDesc = "DAYS_DESC",
   LocationAsc = "LOCATION_ASC",
@@ -150,6 +163,8 @@ export type ApplicationUpdateInput = {
   _id_unset?: InputMaybe<Scalars["Boolean"]["input"]>;
   anzsco_code?: InputMaybe<Scalars["String"]["input"]>;
   anzsco_code_unset?: InputMaybe<Scalars["Boolean"]["input"]>;
+  comment?: InputMaybe<Scalars["String"]["input"]>;
+  comment_unset?: InputMaybe<Scalars["Boolean"]["input"]>;
   days?: InputMaybe<Scalars["Int"]["input"]>;
   days_inc?: InputMaybe<Scalars["Int"]["input"]>;
   days_unset?: InputMaybe<Scalars["Boolean"]["input"]>;
@@ -245,6 +260,26 @@ export type UpdateManyPayload = {
   modifiedCount: Scalars["Int"]["output"];
 };
 
+export type AddEntryMutationVariables = Exact<{
+  object: ApplicationInsertInput;
+}>;
+
+export type AddEntryMutation = {
+  __typename?: "Mutation";
+  insertOneApplication?: {
+    __typename?: "Application";
+    _id: any;
+    anzsco_code: string;
+    submitted_on: any;
+    received_on: any;
+    days: number;
+    outcome: boolean;
+    stream: string;
+    location: string;
+    comment?: string | null;
+  } | null;
+};
+
 export type GetAllEntriesQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetAllEntriesQuery = {
@@ -262,6 +297,35 @@ export type GetAllEntriesQuery = {
   } | null>;
 };
 
+export const AddEntryDocument = gql`
+  mutation AddEntry($object: ApplicationInsertInput!) {
+    insertOneApplication(data: $object) {
+      _id
+      anzsco_code
+      submitted_on
+      received_on
+      days
+      outcome
+      stream
+      location
+      comment
+    }
+  }
+`;
+
+@Injectable({
+  providedIn: "root",
+})
+export class AddEntryGQL extends Apollo.Mutation<
+  AddEntryMutation,
+  AddEntryMutationVariables
+> {
+  override document = AddEntryDocument;
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo);
+  }
+}
 export const GetAllEntriesDocument = gql`
   query GetAllEntries {
     applications {
