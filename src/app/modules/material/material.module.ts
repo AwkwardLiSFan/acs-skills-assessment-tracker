@@ -2,6 +2,8 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
+import { MatTooltipModule } from "@angular/material/tooltip";
+import { MatIconModule } from "@angular/material/icon";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatTableModule } from "@angular/material/table";
@@ -35,6 +37,8 @@ import {
     MatLuxonDateModule,
     MatSortModule,
     MatSnackBarModule,
+    MatIconModule,
+    MatTooltipModule,
   ],
   exports: [
     MatDialogModule,
@@ -50,6 +54,8 @@ import {
     MatLuxonDateModule,
     MatSortModule,
     MatSnackBarModule,
+    MatIconModule,
+    MatTooltipModule,
   ],
   providers: [
     {

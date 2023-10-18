@@ -294,6 +294,7 @@ export type GetAllEntriesQuery = {
     received_on: any;
     stream: string;
     submitted_on: any;
+    comment?: string | null;
   } | null>;
 };
 
@@ -337,6 +338,7 @@ export const GetAllEntriesDocument = gql`
       received_on
       stream
       submitted_on
+      comment
     }
   }
 `;

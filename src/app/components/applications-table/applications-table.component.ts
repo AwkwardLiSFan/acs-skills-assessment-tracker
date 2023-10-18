@@ -1,12 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-  ViewChild,
-} from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
@@ -57,10 +49,7 @@ export class ApplicationsTableComponent implements OnInit {
       .open(AddEntryDialogComponent, { backdropClass: "bgClass" })
       .afterClosed()
       .subscribe(() => {
-        // No subscriptions available, refresh table data if required
-        setTimeout(() => {
-          this.fetchTableEntries();
-        }, 1000);
+        // TODO: No subscriptions available, refresh table data manually
       });
   }
 
@@ -84,6 +73,7 @@ export class ApplicationsTableComponent implements OnInit {
           "outcome",
           "stream",
           "location",
+          "comment",
         ];
       });
   }

@@ -13,7 +13,7 @@ export const anzscoCodes: Map<number, string> = new Map<number, string>([
   [135111, "Chief Information Officer"],
   [262111, "Database Administrator"],
   [261312, "Developer Programmer"],
-  [261111, "ICT Business Analysts"],
+  [261111, "ICT Business Analyst"],
   [135199, "ICT Managers NEC"],
   [135112, "ICT Project Manager"],
   [263211, "ICT Quality Assurance Engineer"],
@@ -29,7 +29,7 @@ export const anzscoCodes: Map<number, string> = new Map<number, string>([
   [261313, "Software Engineer"],
   [261314, "Software Tester"],
   [262113, "Systems Administrator"],
-  [261112, "Systems Analysts"],
+  [261112, "Systems Analyst"],
   [313113, "Web Administrator"],
   [261212, "Web Developer"],
   [263111, "Computer Network and Systems Engineer"],
@@ -112,11 +112,6 @@ export class AddEntryDialogComponent {
       },
     };
 
-    this.snackBar.open("Successfully added new entry", "X", {
-      duration: 2000,
-      panelClass: ["success-snackbar"],
-    });
-
     // Call mutation to save entry to database
     this.addEntryMutation.mutate(variables).subscribe((result) => {
       if (result.errors) {
@@ -136,13 +131,13 @@ export class AddEntryDialogComponent {
       }
     });
 
-    // Close dialog with relevant outcome
+    // Close dialog
     this.dialogRef.close();
   }
 
   /** Close dialog and return to table view */
   public close(): void {
-    this.dialogRef.close("cancel");
+    this.dialogRef.close();
   }
 
   /**
