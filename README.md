@@ -1,27 +1,32 @@
-# UserInterface
+# ACS Tracker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+If you've ever applied for a skills assessment from the Australian Computer Society, you have probably faced the same question I did - how long will my application take to process? 
 
-## Development server
+While the official website states a general waiting time of 8-12 weeks, individual cases often vary based on each person's circumstances. Wouldn't it be great if you could see the current trends in processing times at a glance, shared directly by other applicants themselves?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Motivation
 
-## Code scaffolding
+As of the time of writing this, the main sources of information about ACS skills assessments are the [ACS Skills Assessment for PR Facebook group](https://www.facebook.com/groups/acs4pr) and the [AusVisa subreddit](https://www.reddit.com/r/AusVisa/).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+There is no single source of truth that collects timelines from the applicants, with user posts on the Facebook group forming the majority of discussion as applicants often tend to post their results along with the time taken to receive them. 
 
-## Build
+However, there is no consistent format to this data, as some may choose to omit crucial details such as the ANZSCO code they applied under, or the chosen stream. It is also not convenient to always scroll through a large number of posts seeking help or discussing other aspects of the process just to find the ones that shed light on waiting times.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Solution
 
-## Running unit tests
+The idea for this application was conceived during the interminable wait between submitting my own skills assessment application and receiving a response. With this tracker, I wanted to create a web app that would convey critical information on current wait times based on aggregated user responses from those who have already received a result - either positive or negative. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The data is presented in a tabular format, sorted in order of the date of receiving a result - latest to oldest. Users who wish to share their own experience can log their application details through a simple form that takes no more than a minute to complete. No personal information is required.
 
-## Running end-to-end tests
+## Roadmap
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Planned improvements for the app include:
 
-## Further help
+* Graphs to visualise the latest trends - requires more data to draw meaningful conclusions (at least 50 entries). This can present processing times in a similar format to the Department of Home Affairs (90% processed in x weeks, 75% processed in y weeks, and so on)
+* Misc bug fixes and performance improvements
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Contributing
+
+Please open an issue if you wish to suggest a major feature, or alternatively send me an email at [soham.sevak@gmail.com](mailto:soham.sevak@gmail.com) with the request.
+
+You are welcome to clone the repo and open a pull request if you would like to submit your own additions.
