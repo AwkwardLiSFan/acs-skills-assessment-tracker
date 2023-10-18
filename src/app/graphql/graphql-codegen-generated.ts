@@ -37,6 +37,7 @@ export type Application = {
   _id: Scalars["ObjectId"]["output"];
   anzsco_code: Scalars["String"]["output"];
   comment?: Maybe<Scalars["String"]["output"]>;
+  created_at?: Maybe<Scalars["DateTime"]["output"]>;
   days: Scalars["Int"]["output"];
   location: Scalars["String"]["output"];
   outcome: Scalars["Boolean"]["output"];
@@ -49,6 +50,7 @@ export type ApplicationInsertInput = {
   _id?: InputMaybe<Scalars["ObjectId"]["input"]>;
   anzsco_code: Scalars["String"]["input"];
   comment?: InputMaybe<Scalars["String"]["input"]>;
+  created_at?: InputMaybe<Scalars["DateTime"]["input"]>;
   days: Scalars["Int"]["input"];
   location: Scalars["String"]["input"];
   outcome: Scalars["Boolean"]["input"];
@@ -87,6 +89,15 @@ export type ApplicationQueryInput = {
   comment_lte?: InputMaybe<Scalars["String"]["input"]>;
   comment_ne?: InputMaybe<Scalars["String"]["input"]>;
   comment_nin?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  created_at?: InputMaybe<Scalars["DateTime"]["input"]>;
+  created_at_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
+  created_at_gt?: InputMaybe<Scalars["DateTime"]["input"]>;
+  created_at_gte?: InputMaybe<Scalars["DateTime"]["input"]>;
+  created_at_in?: InputMaybe<Array<InputMaybe<Scalars["DateTime"]["input"]>>>;
+  created_at_lt?: InputMaybe<Scalars["DateTime"]["input"]>;
+  created_at_lte?: InputMaybe<Scalars["DateTime"]["input"]>;
+  created_at_ne?: InputMaybe<Scalars["DateTime"]["input"]>;
+  created_at_nin?: InputMaybe<Array<InputMaybe<Scalars["DateTime"]["input"]>>>;
   days?: InputMaybe<Scalars["Int"]["input"]>;
   days_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
   days_gt?: InputMaybe<Scalars["Int"]["input"]>;
@@ -144,6 +155,8 @@ export enum ApplicationSortByInput {
   AnzscoCodeDesc = "ANZSCO_CODE_DESC",
   CommentAsc = "COMMENT_ASC",
   CommentDesc = "COMMENT_DESC",
+  CreatedAtAsc = "CREATED_AT_ASC",
+  CreatedAtDesc = "CREATED_AT_DESC",
   DaysAsc = "DAYS_ASC",
   DaysDesc = "DAYS_DESC",
   LocationAsc = "LOCATION_ASC",
@@ -165,6 +178,8 @@ export type ApplicationUpdateInput = {
   anzsco_code_unset?: InputMaybe<Scalars["Boolean"]["input"]>;
   comment?: InputMaybe<Scalars["String"]["input"]>;
   comment_unset?: InputMaybe<Scalars["Boolean"]["input"]>;
+  created_at?: InputMaybe<Scalars["DateTime"]["input"]>;
+  created_at_unset?: InputMaybe<Scalars["Boolean"]["input"]>;
   days?: InputMaybe<Scalars["Int"]["input"]>;
   days_inc?: InputMaybe<Scalars["Int"]["input"]>;
   days_unset?: InputMaybe<Scalars["Boolean"]["input"]>;
@@ -277,6 +292,7 @@ export type AddEntryMutation = {
     stream: string;
     location: string;
     comment?: string | null;
+    created_at?: any | null;
   } | null;
 };
 
@@ -310,6 +326,7 @@ export const AddEntryDocument = gql`
       stream
       location
       comment
+      created_at
     }
   }
 `;

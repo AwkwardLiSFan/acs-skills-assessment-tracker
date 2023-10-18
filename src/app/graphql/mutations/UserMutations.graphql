@@ -9,5 +9,6 @@ mutation AddEntry($object: ApplicationInsertInput!) {
     stream
     location
     comment
+    created_at
   }
 }

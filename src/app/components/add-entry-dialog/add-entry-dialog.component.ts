@@ -109,6 +109,7 @@ export class AddEntryDialogComponent {
         stream: this.form.controls["stream"].value,
         location: this.form.controls["location"].value,
         comment: this.form.controls["comment"].value,
+        created_at: new Date().toISOString(),
       },
     };
 

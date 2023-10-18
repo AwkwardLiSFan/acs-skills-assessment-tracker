@@ -1,12 +1,46 @@
-type Query {
-  application(query: ApplicationQueryInput): Application
-  applications(query: ApplicationQueryInput, limit: Int = 100, sortBy: ApplicationSortByInput): [Application]!
+enum ApplicationSortByInput {
+  SUBMITTED_ON_DESC
+  COMMENT_ASC
+  LOCATION_DESC
+  RECEIVED_ON_DESC
+  STREAM_ASC
+  ANZSCO_CODE_DESC
+  DAYS_ASC
+  RECEIVED_ON_ASC
+  ANZSCO_CODE_ASC
+  CREATED_AT_ASC
+  LOCATION_ASC
+  STREAM_DESC
+  SUBMITTED_ON_ASC
+  COMMENT_DESC
+  CREATED_AT_DESC
+  _ID_ASC
+  _ID_DESC
+  DAYS_DESC
 }
 
-scalar DateTime
-
-type InsertManyPayload {
-  insertedIds: [ObjectId]!
+input ApplicationUpdateInput {
+  submitted_on_unset: Boolean
+  _id: ObjectId
+  days_unset: Boolean
+  created_at: DateTime
+  location_unset: Boolean
+  days_inc: Int
+  received_on: DateTime
+  days: Int
+  outcome: Boolean
+  comment: String
+  anzsco_code_unset: Boolean
+  outcome_unset: Boolean
+  stream: String
+  location: String
+  comment_unset: Boolean
+  received_on_unset: Boolean
+  submitted_on: DateTime
+  created_at_unset: Boolean
+  anzsco_code: String
+  _id_unset: Boolean
+  stream_unset: Boolean
 }
 
 type UpdateManyPayload {
@@ -14,113 +48,26 @@ type UpdateManyPayload {
   modifiedCount: Int!
 }
 
-type DeleteManyPayload {
-  deletedCount: Int!
-}
-
-input ApplicationQueryInput {
-  location_nin: [String]
-  comment_gt: String
-  received_on_nin: [DateTime]
+input ApplicationInsertInput {
+  anzsco_code: String!
+  outcome: Boolean!
   comment: String
-  _id_nin: [ObjectId]
-  anzsco_code_gt: String
-  received_on_gte: DateTime
-  location_gt: String
-  stream: String
-  _id_exists: Boolean
-  submitted_on_exists: Boolean
-  outcome_exists: Boolean
-  location_lte: String
-  received_on_gt: DateTime
-  anzsco_code_lte: String
-  days_in: [Int]
-  submitted_on_lt: DateTime
-  received_on_in: [DateTime]
-  _id_in: [ObjectId]
-  outcome: Boolean
-  location_gte: String
-  anzsco_code: String
-  submitted_on_gte: DateTime
-  _id_lte: ObjectId
-  stream_lt: String
-  received_on_lt: DateTime
-  anzsco_code_lt: String
-  location_exists: Boolean
-  submitted_on_nin: [DateTime]
-  comment_ne: String
-  _id_gte: ObjectId
-  comment_exists: Boolean
-  comment_lt: String
-  submitted_on: DateTime
-  anzsco_code_exists: Boolean
-  stream_lte: String
-  days_ne: Int
-  stream_in: [String]
-  location_in: [String]
-  received_on_lte: DateTime
-  outcome_ne: Boolean
-  submitted_on_ne: DateTime
-  comment_nin: [String]
-  days_exists: Boolean
-  comment_gte: String
-  OR: [ApplicationQueryInput!]
-  submitted_on_in: [DateTime]
-  location_ne: String
-  submitted_on_gt: DateTime
-  days_gt: Int
-  location: String
-  days_nin: [Int]
-  anzsco_code_nin: [String]
-  received_on_exists: Boolean
-  comment_lte: String
-  _id_lt: ObjectId
-  AND: [ApplicationQueryInput!]
-  anzsco_code_in: [String]
-  days: Int
-  location_lt: String
-  anzsco_code_gte: String
-  comment_in: [String]
-  stream_exists: Boolean
-  stream_ne: String
-  _id_ne: ObjectId
-  days_lt: Int
-  stream_gt: String
-  stream_nin: [String]
-  days_lte: Int
-  received_on: DateTime
-  days_gte: Int
-  anzsco_code_ne: String
-  received_on_ne: DateTime
-  submitted_on_lte: DateTime
-  _id_gt: ObjectId
+  received_on: DateTime!
+  stream: String!
+  submitted_on: DateTime!
+  location: String!
+  created_at: DateTime
   _id: ObjectId
-  stream_gte: String
+  days: Int!
 }
 
-enum ApplicationSortByInput {
-  COMMENT_ASC
-  LOCATION_DESC
-  COMMENT_DESC
-  STREAM_ASC
-  DAYS_DESC
-  STREAM_DESC
-  SUBMITTED_ON_DESC
-  ANZSCO_CODE_ASC
-  _ID_DESC
-  ANZSCO_CODE_DESC
-  DAYS_ASC
-  LOCATION_ASC
-  RECEIVED_ON_ASC
-  RECEIVED_ON_DESC
-  SUBMITTED_ON_ASC
-  _ID_ASC
-}
+scalar ObjectId
 
 type Application {
   _id: ObjectId!
   anzsco_code: String!
   comment: String
+  created_at: DateTime
   days: Int!
   location: String!
   outcome: Boolean!
@@ -140,38 +87,106 @@ type Mutation {
   upsertOneApplication(query: ApplicationQueryInput, data: ApplicationInsertInput!): Application
 }
 
-input ApplicationUpdateInput {
-  received_on: DateTime
-  location: String
+input ApplicationQueryInput {
+  location_gte: String
+  anzsco_code_lt: String
   _id: ObjectId
-  anzsco_code: String
-  days: Int
-  days_unset: Boolean
-  received_on_unset: Boolean
-  location_unset: Boolean
-  outcome: Boolean
-  anzsco_code_unset: Boolean
-  submitted_on: DateTime
-  submitted_on_unset: Boolean
-  days_inc: Int
-  comment_unset: Boolean
-  _id_unset: Boolean
+  submitted_on_ne: DateTime
+  submitted_on_exists: Boolean
+  days_in: [Int]
+  comment_in: [String]
+  _id_in: [ObjectId]
+  location_lte: String
+  created_at_nin: [DateTime]
+  anzsco_code_lte: String
+  created_at: DateTime
+  days_exists: Boolean
+  comment_lte: String
+  stream_ne: String
+  outcome_exists: Boolean
+  received_on_ne: DateTime
+  stream_lt: String
+  location_exists: Boolean
+  received_on_exists: Boolean
+  _id_exists: Boolean
+  received_on: DateTime
+  anzsco_code_gte: String
+  submitted_on_lt: DateTime
+  OR: [ApplicationQueryInput!]
+  _id_lt: ObjectId
+  days_lt: Int
   stream: String
+  created_at_lte: DateTime
+  anzsco_code_gt: String
+  stream_gte: String
+  created_at_gt: DateTime
+  created_at_in: [DateTime]
+  comment_gt: String
+  _id_lte: ObjectId
+  days_nin: [Int]
+  submitted_on_gt: DateTime
+  created_at_gte: DateTime
+  anzsco_code: String
+  submitted_on_gte: DateTime
+  anzsco_code_ne: String
+  received_on_gte: DateTime
+  received_on_lt: DateTime
+  anzsco_code_in: [String]
+  created_at_lt: DateTime
+  received_on_in: [DateTime]
+  submitted_on_nin: [DateTime]
+  location_lt: String
+  days: Int
+  comment_exists: Boolean
+  location: String
+  comment_gte: String
+  submitted_on: DateTime
+  AND: [ApplicationQueryInput!]
+  location_nin: [String]
+  days_gt: Int
+  received_on_lte: DateTime
+  days_gte: Int
+  anzsco_code_nin: [String]
+  comment_ne: String
+  stream_nin: [String]
+  comment_nin: [String]
+  days_lte: Int
+  submitted_on_in: [DateTime]
+  location_in: [String]
+  outcome_ne: Boolean
+  _id_gt: ObjectId
+  location_gt: String
+  _id_nin: [ObjectId]
+  location_ne: String
+  _id_gte: ObjectId
+  received_on_nin: [DateTime]
+  _id_ne: ObjectId
+  anzsco_code_exists: Boolean
+  stream_lte: String
+  submitted_on_lte: DateTime
+  created_at_ne: DateTime
+  stream_exists: Boolean
+  created_at_exists: Boolean
+  received_on_gt: DateTime
+  days_ne: Int
   comment: String
-  outcome_unset: Boolean
-  stream_unset: Boolean
+  stream_in: [String]
+  stream_gt: String
+  outcome: Boolean
+  comment_lt: String
 }
 
-scalar ObjectId
+scalar DateTime
 
-input ApplicationInsertInput {
-  outcome: Boolean!
-  received_on: DateTime!
-  submitted_on: DateTime!
-  comment: String
-  location: String!
-  anzsco_code: String!
-  days: Int!
-  stream: String!
-  _id: ObjectId
+type Query {
+  application(query: ApplicationQueryInput): Application
+  applications(query: ApplicationQueryInput, limit: Int = 100, sortBy: ApplicationSortByInput): [Application]!
+}
+
+type DeleteManyPayload {
+  deletedCount: Int!
+}
+
+type InsertManyPayload {
+  insertedIds: [ObjectId]!
 }
