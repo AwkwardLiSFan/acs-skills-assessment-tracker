@@ -11,7 +11,7 @@
           formControlName="anzsco"
           style="color: black"
         >
-          <mat-option *ngFor="let code of codes | keyvalue" [value]="code.key">
+          <mat-option *ngFor="let code of codes | keyvalue" [value]="code">
             {{ code.key }} - {{ code.value }}
           </mat-option>
         </mat-select>
@@ -25,6 +25,7 @@
           formControlName="dateSubmitted"
           matInput
           [matDatepicker]="submittedPicker"
+          [max]="upperBound"
         />
         <mat-datepicker-toggle
           matIconSuffix
@@ -41,6 +42,7 @@
           formControlName="dateReceived"
           matInput
           [matDatepicker]="receivedPicker"
+          [max]="upperBound"
         />
         <mat-datepicker-toggle
           matIconSuffix
@@ -89,6 +91,19 @@
             {{ location }}
           </mat-option>
         </mat-select>
+      </mat-form-field>
+
+      <!-- Comment -->
+      <mat-form-field>
+        <mat-label style="color: black">Details (optional)</mat-label>
+        <textarea
+          class="comment-box"
+          [required]="false"
+          formControlName="comment"
+          matInput
+          placeholder="Application was delayed... / Forgot to attach... / Extra documents requested ..."
+        >
+        </textarea>
       </mat-form-field>
     </div>
     <!-- Buttons  -->

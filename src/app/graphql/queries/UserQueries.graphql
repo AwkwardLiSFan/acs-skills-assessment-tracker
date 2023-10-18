@@ -8,5 +8,6 @@ query GetAllEntries {
     received_on
     stream
     submitted_on
+    comment
   }
 }

@@ -200,3 +200,26 @@ body {
     font-size: 20px;
   }
 }
+
+// Snackbar styling
+@mixin snackbar-common {
+  font-weight: 500;
+  font-size: 18px;
+  font-family: "Jetbrains";
+}
+
+.success-snackbar {
+  @include snackbar-common();
+  .mat-mdc-snack-bar-label,
+  button {
+    color: green !important;
+  }
+}
+
+.failure-snackbar {
+  @include snackbar-common();
+  .mat-mdc-snack-bar-label,
+  button {
+    color: red !important;
+  }
+}

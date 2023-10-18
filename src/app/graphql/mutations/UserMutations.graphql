@@ -1,0 +1,13 @@
+mutation AddEntry($object: ApplicationInsertInput!) {
+  insertOneApplication(data: $object) {
+    _id
+    anzsco_code
+    submitted_on
+    received_on
+    days
+    outcome
+    stream
+    location
+    comment
+  }
+}

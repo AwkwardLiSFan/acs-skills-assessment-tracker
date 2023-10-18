@@ -1,12 +1,12 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { MatPaginator } from "@angular/material/paginator";
-import { DateTime } from "luxon";
 import { BreakpointObserver, BreakpointState } from "@angular/cdk/layout";
 import { GetAllEntriesGQL } from "src/app/graphql/graphql-codegen-generated";
 import { map } from "rxjs";
+import { AddEntryDialogComponent } from "../add-entry-dialog/add-entry-dialog.component";
 
 @Component({
   selector: "app-applications-table",
@@ -28,6 +28,7 @@ export class ApplicationsTableComponent implements OnInit {
   constructor(
     public breakpointObserver: BreakpointObserver,
     private getAllEntriesQuery: GetAllEntriesGQL,
+    private dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {
@@ -40,6 +41,16 @@ export class ApplicationsTableComponent implements OnInit {
       });
 
     this.fetchTableEntries();
+  }
+
+  /** Opens dialog to log a new entry in the table */
+  public addEntry(): void {
+    this.dialog
+      .open(AddEntryDialogComponent, { backdropClass: "bgClass" })
+      .afterClosed()
+      .subscribe(() => {
+        // TODO: No subscriptions available, refresh table data manually
+      });
   }
 
   /**
@@ -62,22 +73,8 @@ export class ApplicationsTableComponent implements OnInit {
           "outcome",
           "stream",
           "location",
+          "comment",
         ];
       });
-  }
-
-  /**
-   * Finds difference in days given two dates
-   * @param
-   * startDate: initial date of application in ISOString format
-   * endDate: date of receiving result in ISOString format
-   * @returns
-   * Days between the two given dates as a number
-   */
-  private findDateDiff(startDate: string, endDate: string): number | undefined {
-    const start: DateTime = DateTime.fromISO(startDate);
-    const end: DateTime = DateTime.fromISO(endDate);
-
-    return end.diff(start, "days").toObject().days;
   }
 }
