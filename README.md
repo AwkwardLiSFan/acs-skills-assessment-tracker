@@ -34,3 +34,5 @@ You are welcome to clone the repo and open a pull request if you would like to s
 ## Disclaimer
 
 This web application, or its creator, do not claim any affiliation with or endorsement via the Australian Computer Society, Incorporated. This is a standalone application developed as an open-source project to provide applicants with better data regarding current processing timelines. No infringement of the term 'Australian Computer Society' is intended by its use in the application title, whose ownership solely rests with the aforementioned organisation.
+
+Neither the application nor its creator claim to offer any migration advice - contact a registered migration agent if you wish to seek professional help for your skills assessment application.
