@@ -30,3 +30,7 @@ Planned improvements for the app include:
 Please open an issue if you wish to suggest a major feature, or alternatively send me an email at [soham.sevak@gmail.com](mailto:soham.sevak@gmail.com) with the request.
 
 You are welcome to clone the repo and open a pull request if you would like to submit your own additions.
+
+## Disclaimer
+
+This web application, or its creator, do not claim any affiliation with or endorsement via the Australian Computer Society, Incorporated. This is a standalone application developed as an open-source project to provide applicants with better data regarding current processing timelines. No infringement of the term 'Australian Computer Society' is intended by its use in the application title, whose ownership solely rests with the aforementioned organisation.
