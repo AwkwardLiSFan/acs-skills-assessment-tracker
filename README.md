@@ -33,6 +33,16 @@ Please open an issue if you wish to suggest a major feature, or alternatively se
 
 You are welcome to clone the repo and open a pull request if you would like to submit your own additions.
 
+### Architecture
+
+### Additional Notes
+
+This web app was built using Angular v16, and the backend leverages the use of MongoDB Atlas, a fully managed cloud database solution that also provides easy access to the data contained within via APIs that take away the need to manage our own server.
+
+It is hosted using a combination of AWS S3 and Cloudfront to provide secure static website hosting at a low cost. 
+
+Direct contributions towards the cloud architecture are unfortunately not possible. You are welcome to look at the Deployment repository which provisions the cloud resources as code (IaC) using AWS CloudFormation, and open a pull request there if you wish to suggest changes.
+
 ## Disclaimer
 
 **Neither the application nor its creator claim any affiliation with or endorsement via the Australian Computer Society, Incorporated. This is a standalone application developed as an open-source project to provide applicants with better data regarding current processing timelines. No infringement of the term 'Australian Computer Society' is intended by its use in the application title, whose ownership rests solely with the aforementioned organisation.**
