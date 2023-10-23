@@ -22,6 +22,8 @@ The data is presented in a tabular format, sorted in order of the date of receiv
 
 ## Architecture
 
+![Architecture diagram for ACS Tracker](src/assets/images/architecture_diagram.png)
+
 ## Roadmap
 
 Planned improvements for the app include:
