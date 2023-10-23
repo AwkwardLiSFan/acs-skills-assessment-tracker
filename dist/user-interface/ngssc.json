@@ -1,0 +1,7 @@
+{
+  "environmentVariables": [
+    "GQL_ENDPOINT"
+  ],
+  "filePattern": "index.html",
+  "variant": "process"
+}
