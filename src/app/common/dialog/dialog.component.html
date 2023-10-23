@@ -1,4 +1,14 @@
 <div class="dialog">
   <h1 class="dialog-title">{{ title }}</h1>
   <div class="dialog-text" [innerHTML]="message"></div>
+  <div class="buttons-container">
+    <button
+      mat-raised-button
+      class="action-button"
+      type="button"
+      (click)="close()"
+    >
+      Ok
+    </button>
+  </div>
 </div>
