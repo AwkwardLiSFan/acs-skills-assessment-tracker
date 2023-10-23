@@ -9,8 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "prepare": "husky install",
-    "graphql-codegen": "gql-gen",
-    "build:prod": "ng run user-interface:ngsscbuild:production"
+    "graphql-codegen": "gql-gen"
   },
   "private": true,
   "dependencies": {

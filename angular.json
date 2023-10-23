@@ -36,8 +36,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1mb",
-                  "maximumError": "2mb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -95,19 +95,6 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
-          }
-        },
-        "ngsscbuild": {
-          "builder": "angular-server-side-configuration:ngsscbuild",
-          "options": {
-            "additionalEnvironmentVariables": [],
-            "ngsscEnvironmentFile": "src/environments/environment.ts",
-            "browserTarget": "user-interface:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "user-interface:build:production"
-            }
           }
         }
       }
