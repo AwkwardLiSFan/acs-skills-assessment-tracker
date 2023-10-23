@@ -20,6 +20,8 @@ The idea for this application was conceived during the interminable wait between
 
 The data is presented in a tabular format, sorted in order of the date of receiving a result - latest to oldest. Users who wish to share their own experience can log their application details through a simple form that takes no more than a minute to complete. No personal information is required.
 
+## Architecture
+
 ## Roadmap
 
 Planned improvements for the app include:
@@ -33,15 +35,13 @@ Please open an issue if you wish to suggest a major feature, or alternatively se
 
 You are welcome to clone the repo and open a pull request if you would like to submit your own additions.
 
-### Architecture
-
 ### Additional Notes
 
 This web app was built using Angular v16, and the backend leverages the use of MongoDB Atlas, a fully managed cloud database solution that also provides easy access to the data contained within via APIs that take away the need to manage our own server.
 
 It is hosted using a combination of AWS S3 and Cloudfront to provide secure static website hosting at a low cost. 
 
-Direct contributions towards the cloud architecture are unfortunately not possible. You are welcome to look at the Deployment repository which provisions the cloud resources as code (IaC) using AWS CloudFormation, and open a pull request there if you wish to suggest changes.
+Direct contributions towards the cloud architecture are unfortunately not possible. You are welcome to look at the Deployment repository which provisions the cloud resources as code (IaC) using AWS CloudFormation, and open a pull request if you wish to suggest changes.
 
 ## Disclaimer
 
