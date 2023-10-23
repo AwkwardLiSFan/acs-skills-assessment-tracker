@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { MatDialog } from "@angular/material/dialog";
+import { Component, NgZone, OnInit, ViewChild } from "@angular/core";
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { MatPaginator } from "@angular/material/paginator";
@@ -7,6 +7,7 @@ import { BreakpointObserver, BreakpointState } from "@angular/cdk/layout";
 import { GetAllEntriesGQL } from "src/app/graphql/graphql-codegen-generated";
 import { map } from "rxjs";
 import { AddEntryDialogComponent } from "../add-entry-dialog/add-entry-dialog.component";
+import { DialogComponent } from "src/app/common/dialog/dialog.component";
 
 @Component({
   selector: "app-applications-table",
@@ -46,7 +47,12 @@ export class ApplicationsTableComponent implements OnInit {
   /** Opens dialog to log a new entry in the table */
   public addEntry(): void {
     this.dialog
-      .open(AddEntryDialogComponent, { backdropClass: "bgClass" })
+      .open(AddEntryDialogComponent, {
+        hasBackdrop: true,
+        disableClose: false,
+        closeOnNavigation: true,
+        backdropClass: "bgClass",
+      })
       .afterClosed()
       .subscribe(() => {
         // TODO: No subscriptions available, refresh table data manually

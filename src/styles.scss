@@ -155,6 +155,15 @@ body {
   color: inherit !important;
 }
 
+/* Ensure dialog form is scrollable for small screen sizes */
+.cdk-global-overlay-wrapper {
+  display: flex;
+  position: absolute;
+  z-index: 1000;
+  overflow: auto;
+  pointer-events: auto;
+}
+
 /* Blur the background when the About dialog is opened */
 .bgClass {
   filter: blur(20px);

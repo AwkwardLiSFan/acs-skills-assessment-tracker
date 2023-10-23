@@ -1,5 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import {
+  MatDialog,
+  MatDialogConfig,
+  MatDialogRef,
+} from "@angular/material/dialog";
 import { IconDefinition, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 import { DialogComponent } from "../dialog/dialog.component";
@@ -37,9 +41,11 @@ export class HeaderComponent implements OnInit {
    */
   private setDialogConfig(): void {
     this.dialogConfig.disableClose = false;
+    this.dialogConfig.hasBackdrop = true;
+    this.dialogConfig.closeOnNavigation = true;
     this.dialogConfig.autoFocus = true;
     this.dialogConfig.data = {
-      title: "ABOUT",
+      title: "DISCLAIMER",
       message: this.aboutText,
     };
     this.dialogConfig.backdropClass = "bgClass";

@@ -1,7 +1,3 @@
-<p>The idea for this application was conceived during the interminable wait between submitting my skills assessment application and receiving a response.</p>
+<p>Neither the application nor its creator claim any affiliation with or endorsement via the Australian Computer Society, Incorporated. This is a standalone application developed as an open-source project to provide applicants with better data regarding current processing timelines. No infringement of the term 'Australian Computer Society' is intended by its use in the application title, whose ownership rests solely with the aforementioned organisation. </p>
 
-<p>Day in and day out, thoughts of getting a rejection or delayed response kept me on edge. More than anything, I wished for a clearer picture of the current processing times, seeing as the official guidelines aren't updated as often as we'd like them to be.</p>
-
-<p>My goal is for future applicants to gain more insight into current trends than I had during my application, and this can only be done with more data. To that end, I request you to take a minute and log details of your ACS application if you've been through this yourself.</p>
-
-<p>Lastly, I hope this helps alleviate some of the anxiety! &#128512;</p>
+<p>Neither the application nor its creator claim to offer any migration advice - contact a registered migration agent if you wish to seek professional help for your skills assessment application. </p>
