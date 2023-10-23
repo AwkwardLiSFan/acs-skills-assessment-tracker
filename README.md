@@ -1,6 +1,6 @@
 # ACS Tracker
 
-Visit here: https://acs-tracker.com/home
+Visit here: https://acs-tracker.com
 
 If you've ever applied for a skills assessment from the Australian Computer Society, you have probably faced the same question I did - how long will my application take to process? 
 
