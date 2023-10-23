@@ -8,7 +8,7 @@ While the official website states a general waiting time of 8-12 weeks, individu
 
 As of the time of writing this, the main sources of information about ACS skills assessments are the [ACS Skills Assessment for PR Facebook group](https://www.facebook.com/groups/acs4pr) and the [AusVisa subreddit](https://www.reddit.com/r/AusVisa/).
 
-There is no single source of truth that collects timelines from the applicants, with user posts on the Facebook group where applicants often tend to post their results along with the time taken. 
+There is no single source of truth that collects timelines from the applicants, with the most active updates being user posts on the Facebook group where applicants often tend to post their outcomes along with the time taken. 
 
 However, there is no consistent format to this data, as some may choose to omit crucial details such as the ANZSCO code they applied under, or the chosen stream. It is also not convenient to always scroll through a large number of posts seeking help or discussing other aspects of the process just to find the ones that shed light on waiting times.
 
@@ -42,8 +42,6 @@ You are welcome to clone the repo and open a pull request if you would like to s
 This web app was built using Angular v16, and the backend leverages MongoDB Atlas, a fully managed cloud database solution that also provides easy access to data via APIs that take away the need to manage our own server.
 
 It is hosted using AWS S3 and Cloudfront to provide secure static website hosting at a low cost. 
-
-Direct contributions towards the cloud architecture are unfortunately not accepted at this point in time. You are welcome to look at the Deployment repository which provisions the cloud resources as code (IaC) using AWS CloudFormation, and open a pull request if you wish to suggest changes.
 
 ## Disclaimer
 
