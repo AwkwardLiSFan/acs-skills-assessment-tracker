@@ -34,8 +34,10 @@
     "@graphql-codegen/typescript-apollo-angular": "^4.0.0",
     "angular-server-side-configuration": "^16.0.0",
     "apollo-angular": "^5.0.2",
+    "@babel/traverse": ">=7.23.2",
     "graphql": "^16",
     "luxon": "^3.4.3",
+    "postcss": ">=8.4.31",
     "realm": "^12.2.1",
     "realm-web": "^2.0.0",
     "rxjs": "~7.8.0",
@@ -52,6 +54,7 @@
     "@angular-eslint/template-parser": "16.2.0",
     "@angular/cli": "~16.2.1",
     "@angular/compiler-cli": "^16.2.0",
+    "@babel/traverse": ">=7.23.2",
     "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.7.0",
     "@graphql-codegen/cli": "^5.0.0",
@@ -74,6 +77,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "lint-staged": "^14.0.1",
+    "postcss": ">=8.4.31",
     "prettier": "3.0.3",
     "typescript": "~5.1.3"
   }
