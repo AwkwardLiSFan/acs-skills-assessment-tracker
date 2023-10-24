@@ -3,9 +3,9 @@ import { HttpLink } from "apollo-angular/http";
 import { NgModule } from "@angular/core";
 import { ApolloClientOptions, InMemoryCache } from "@apollo/client/core";
 import { HttpHeaders } from "@angular/common/http";
+import { environment } from "src/environments/environment";
 
-const APP_ID = "application-0-hfron";
-const uri = `https://realm.mongodb.com/api/client/v2.0/app/${APP_ID}/graphql`;
+const uri = `https://realm.mongodb.com/api/client/v2.0/app/${environment.APP_ID}/graphql`;
 
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   return {

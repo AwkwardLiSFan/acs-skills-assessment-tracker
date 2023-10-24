@@ -1,5 +1,6 @@
-import "angular-server-side-configuration/process";
+import { environment as environment_prod } from "./environment.prod";
 
 export const environment = {
-  GQL_ENDPOINT: process.env["GQL_ENDPOINT"] || "ws://localhost:8080/graphql",
+  ...environment_prod,
+  production: false,
 };
