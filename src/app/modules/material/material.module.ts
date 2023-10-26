@@ -6,6 +6,7 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatIconModule } from "@angular/material/icon";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatCardModule } from "@angular/material/card";
 import { MatTableModule } from "@angular/material/table";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatButtonModule } from "@angular/material/button";
@@ -39,6 +40,7 @@ import {
     MatSnackBarModule,
     MatIconModule,
     MatTooltipModule,
+    MatCardModule,
   ],
   exports: [
     MatDialogModule,
@@ -56,6 +58,7 @@ import {
     MatSnackBarModule,
     MatIconModule,
     MatTooltipModule,
+    MatCardModule,
   ],
   providers: [
     {
