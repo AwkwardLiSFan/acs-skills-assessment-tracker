@@ -1,6 +1,10 @@
 <div class="app-container">
   <app-header></app-header>
+  <app-statistics [statsData]="statCards!"></app-statistics>
   <div class="table-container">
-    <app-applications-table class="applications-table"></app-applications-table>
+    <app-applications-table
+      class="applications-table"
+      [dataSource]="dataSource"
+    ></app-applications-table>
   </div>
 </div>

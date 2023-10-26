@@ -1,15 +1,15 @@
 <!-- Content  -->
 <div>
   <div class="button-container">
-    <button mat-button class="add-button" color="warn" (click)="addEntry()">
-      Log Details
+    <button mat-button class="add-button" (click)="addEntry()">
+      Add Entry
     </button>
   </div>
 
   <table
     class="applications-table"
     mat-table
-    [dataSource]="dataSource"
+    [dataSource]="tableData"
     matSort
     matSortActive="submitted_on"
     matSortDirection="desc"
