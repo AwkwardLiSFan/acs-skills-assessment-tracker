@@ -1,21 +1,6 @@
 <div class="statistics-container">
-  <mat-card class="stats-card">
-    <h1 style="margin-top: 0px">60 days</h1>
-    <p class="card-text">average response time</p>
-  </mat-card>
-
-  <mat-card class="stats-card">
-    <h1 style="margin-top: 0px">75%</h1>
-    <p class="card-text">Onshore Applicants</p>
-  </mat-card>
-
-  <mat-card class="stats-card">
-    <h1 style="margin-top: 0px">261313</h1>
-    <p class="card-text">Most Popular ANZSCO Code</p>
-  </mat-card>
-
-  <mat-card class="stats-card">
-    <h1 style="margin-top: 0px">36%</h1>
-    <p class="card-text">Post Australian Study applications</p>
+  <mat-card class="stats-card" *ngFor="let card of statsData">
+    <h1 style="margin-top: 0px">{{ card.header }}</h1>
+    <p class="card-text">{{ card.text }}</p>
   </mat-card>
 </div>

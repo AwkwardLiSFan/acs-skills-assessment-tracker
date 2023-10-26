@@ -2,11 +2,11 @@ import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import { DateTime } from "luxon";
 import {
   AddEntryGQL,
   AddEntryMutationVariables,
 } from "src/app/graphql/graphql-codegen-generated";
+import { ClockService } from "src/app/services/clock/clock.service";
 
 export const anzscoCodes: Map<number, string> = new Map<number, string>([
   [261311, "Analyst Programmer"],
@@ -100,7 +100,7 @@ export class AddEntryDialogComponent {
           this.form.controls["anzsco"].value.value,
         submitted_on: this.form.controls["dateSubmitted"].value,
         received_on: this.form.controls["dateReceived"].value,
-        days: this.findDateDiff(
+        days: ClockService.findDateDiff(
           this.form.controls["dateSubmitted"].value,
           this.form.controls["dateReceived"].value,
         ),
@@ -139,20 +139,5 @@ export class AddEntryDialogComponent {
   /** Close dialog and return to table view */
   public close(): void {
     this.dialogRef.close();
-  }
-
-  /**
-   * Finds difference in days given two dates
-   * @param
-   * startDate: initial date of application in ISOString format
-   * endDate: date of receiving result in ISOString format
-   * @returns
-   * Days between the two given dates as a number
-   */
-  private findDateDiff(startDate: string, endDate: string): number {
-    const start: DateTime = DateTime.fromISO(startDate);
-    const end: DateTime = DateTime.fromISO(endDate);
-
-    return end.diff(start, "days").toObject().days!;
   }
 }
