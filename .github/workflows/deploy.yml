@@ -29,7 +29,7 @@ jobs:
       run: npm install
 
     - name: Build
-      run: ng run user-interface:ngsscbuild:production
+      run: npm run build:prod
 
     - name: Deploy
       run:
