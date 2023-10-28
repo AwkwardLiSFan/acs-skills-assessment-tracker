@@ -90,7 +90,7 @@ export class HomeComponent implements OnInit {
 
     return <StatisticsCard>{
       header: `${Math.round(averageProcessingTime)} days`,
-      text: `average response time in past month`,
+      text: `median response time in past month`,
     };
   }
 
