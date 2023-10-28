@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import * as Realm from "realm-web";
 import { environment } from "src/environments/environment";
 
-export const APP_ID = `${environment.APP_ID}`;
+const APP_ID = `${environment.APP_ID}`;
 
 @Injectable({
   providedIn: "root",
