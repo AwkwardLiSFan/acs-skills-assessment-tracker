@@ -30,6 +30,8 @@ jobs:
 
     - name: Build
       run: npm run build:prod
+      env:
+        APP_ID: ${{ secrets.APP_ID }}
 
     - name: Deploy
       run: |
