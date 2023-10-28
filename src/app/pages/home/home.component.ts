@@ -76,12 +76,17 @@ export class HomeComponent implements OnInit {
         ) < 30,
     );
 
-    let avg = 0;
+    // Find median time (avoid averages as sample space isn't large enough yet,
+    // values risk being inflated dramatically by a few outliers)
+    let days: number[] = [];
     for (const app of pastMonthApplications) {
-      avg += app.days;
+      days.push(app.days);
     }
 
-    const averageProcessingTime: number = avg / pastMonthApplications.length;
+    days = [...days].sort((a, b) => a - b);
+    const half = Math.floor(days.length / 2);
+    const averageProcessingTime: number =
+      days.length % 2 ? days[half] : (days[half - 1] + days[half]) / 2;
 
     return <StatisticsCard>{
       header: `${Math.round(averageProcessingTime)} days`,
