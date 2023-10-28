@@ -81,8 +81,10 @@ export class HomeComponent implements OnInit {
       avg += app.days;
     }
 
+    const averageProcessingTime: number = avg / pastMonthApplications.length;
+
     return <StatisticsCard>{
-      header: `${avg / pastMonthApplications.length} days`,
+      header: `${Math.round(averageProcessingTime)} days`,
       text: `average response time in past month`,
     };
   }
