@@ -33,7 +33,7 @@ jobs:
 
     - name: Deploy
       run: |
-        aws s3 sync ./dist/user-interface ${{ secrets.S3_BUCKET }} --region ${{ secrets.AWS_DEFAULT_REGION }} --delete
+        aws s3 sync ./dist/user-interface ${{ secrets.S3_BUCKET }} --region ${{ secrets.AWS_REGION }} --delete
         echo "Invalidating Old Distribution"
         aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths '/*'
         echo "Deployed Successfully"
