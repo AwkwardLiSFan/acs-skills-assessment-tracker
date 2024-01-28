@@ -17,7 +17,22 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+    createThemes(
+      {
+        dark: {
+          primary: '#D9D9D9',
+          secondary: '#AFAFAF',
+          background: '#1E1E1E',
+          text: '#FFFFFF'
+        },
+      },
+      {
+        strict: true,
+      }
+    )
+  ],
   darkMode: 'class'
 }
 
