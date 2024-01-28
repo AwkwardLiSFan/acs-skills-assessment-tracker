@@ -1,9 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 /*eslint-env node*/
+const { createThemes } = require('tw-colors');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  content: ['"./src/**/*.{html,ts}",'],
+  content: ['./src/**/*.{html,ts}'],
   theme: {
     extend: {
       opacity: {
@@ -18,13 +19,15 @@ module.exports = {
     },
   },
   plugins: [
+    // eslint-disable-next-line no-undef
     require('@tailwindcss/forms'),
     createThemes(
       {
         dark: {
           primary: '#D9D9D9',
+          'on-primary': '#000000',
           secondary: '#AFAFAF',
-          background: '#1E1E1E',
+          background: '#141312',
           text: '#FFFFFF'
         },
       },
@@ -33,6 +36,6 @@ module.exports = {
       }
     )
   ],
-  darkMode: 'class'
-}
+  darkMode: 'class',
+};
 

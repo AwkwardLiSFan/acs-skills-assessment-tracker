@@ -6,6 +6,7 @@ import {
   GetAllEntriesGQL,
 } from "src/app/graphql/graphql-codegen-generated";
 import { ClockService } from "src/app/services/clock/clock.service";
+import { ThemeService } from "src/app/services/theme/theme.service";
 
 export type StatisticsCard = {
   header: string;
@@ -23,10 +24,14 @@ export class HomeComponent implements OnInit {
   /* Data passed on to the statistics component for rendering cards */
   public statCards: StatisticsCard[] | undefined;
 
-  constructor(private getAllEntriesQuery: GetAllEntriesGQL) {}
+  constructor(
+    private getAllEntriesQuery: GetAllEntriesGQL,
+    private themeService: ThemeService,
+  ) {}
 
   ngOnInit(): void {
-    this.fetchTableEntries();
+    this.themeService.load();
+    // this.fetchTableEntries();
   }
 
   /**

@@ -2,9 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0");
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 @layer utilities {
   // heading font config
@@ -53,6 +53,15 @@
     line-height: 24px;
     letter-spacing: 0.5px;
   }
+}
+
+body {
+  @apply bg-background;
+  @apply text-text;
+}
+
+html {
+  @apply font-sans;
 }
 
 // // src/styles.scss

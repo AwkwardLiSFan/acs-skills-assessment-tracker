@@ -34,6 +34,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@graphql-codegen/typescript-apollo-angular": "^4.0.0",
+    "@tailwindcss/forms": "^0.5.7",
     "angular-server-side-configuration": "^16.0.0",
     "apollo-angular": "^5.0.2",
     "graphql": "^16",
@@ -43,6 +44,7 @@
     "realm-web": "^2.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "tw-colors": "^3.3.1",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
