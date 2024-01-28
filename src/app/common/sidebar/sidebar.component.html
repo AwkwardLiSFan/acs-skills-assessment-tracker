@@ -1,1 +1,26 @@
-<div class="h-screen w-[300px] bg-primary text-on-primary">sidebar works!</div>
+<div
+  class="h-screen w-[300px] bg-primary text-on-primary p-[25px] flex flex-col justify-between items-center text-center"
+>
+  <div>
+    <img
+      [src]="darkLogoUrl"
+      width="200px"
+      height="200px"
+      alt="Logo of a laptop with a circular border"
+    />
+    <h2 class="font-heading-semibold">{{ title }}</h2>
+  </div>
+  <div class="flex flex-col items-center">
+    <a class="m-[30px]" *ngFor="let item of links">{{ item.displayName }}</a>
+  </div>
+  <div class="flex flex-row">
+    <a
+      href="https://github.com/AwkwardLiSFan/acs-skills-assessment-tracker"
+      target="_blank"
+      class="m-[20px]"
+    >
+      <fa-icon [icon]="githubIcon" size="2x"></fa-icon>
+    </a>
+    <fa-icon [icon]="helpIcon" size="2x" class="m-[20px]"></fa-icon>
+  </div>
+</div>
