@@ -1,27 +1,34 @@
-<div class="h-screen w-screen grid grid-cols-6 gap-4">
-  <app-sidebar class="col-span-1"></app-sidebar>
-  <div class="col-span-5">
-    <app-header></app-header>
-    <div class="mt-[20px] ml-[25px]">
-      <p class="font-body-semibold">
-        No signup, no paywall. <br />
-        Hear the latest updates straight from other applicants.<br />
-        Here are some to start you off:
-      </p>
-    </div>
-  </div>
-  <div class="grid grid-cols-4 gap-0 h-[100%]">
-    <div class="bg-secondary h-[100%]">
-      <p>Hello</p>
-    </div>
-    <div class="bg-secondary h-[100%]">
-      <p>Hello</p>
-    </div>
-    <div class="bg-secondary h-[100%]">
-      <p>Hello</p>
-    </div>
-    <div class="bg-secondary h-[100%]">
-      <p>Hello</p>
+<div class="h-screen w-screen">
+  <div class="flex flex-row">
+    <app-sidebar></app-sidebar>
+    <div class="flex flex-col grow">
+      <app-header class="ml-[25px]"></app-header>
+      <div class="ml-[50px] mt-[20px]">
+        <p class="font-body-regular">
+          No signup, no paywall. <br />
+          Hear the latest updates straight from other applicants.<br />
+          Here are some to start you off:
+        </p>
+      </div>
+      <div class="grid grid-col-4 gap-0 h-[100%] mt-[25px]">
+        <div
+          class="bg-secondary flex flex-col items-center justify-between p-[20px]"
+        >
+          <div class="flex flex-col items-center">
+            <span
+              class="material-symbols-outlined text-on-primary text-8xl mb-[20px]"
+            >
+              av_timer
+            </span>
+            <h2 class="font-heading-regular text-on-primary">63 days</h2>
+          </div>
+          <div
+            class="mb-[40px] font-body-regular text-on-primary w-[250px] text-center"
+          >
+            <p>Median processing time in last month</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <!-- <app-statistics [statsData]="statCards!"></app-statistics>
