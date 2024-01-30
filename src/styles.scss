@@ -13,7 +13,7 @@
     font-style: normal;
     font-weight: 700;
     font-size: 80px;
-    line-height: 20px;
+    line-height: 110px;
     letter-spacing: 0;
   }
 
@@ -41,7 +41,7 @@
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
-    line-height: 24px;
+    line-height: 48px;
     letter-spacing: 0.5px;
   }
 
@@ -58,10 +58,16 @@
 body {
   @apply bg-background;
   @apply text-text;
+  @apply h-[100%];
+  @apply m-0;
+  @apply p-0;
 }
 
 html {
   @apply font-sans;
+  @apply h-[100%];
+  @apply m-0;
+  @apply p-0;
 }
 
 // // src/styles.scss

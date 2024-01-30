@@ -1,7 +1,30 @@
-<div class="h-screen w-screen grid grid-cols-4 gap-4">
+<div class="h-screen w-screen grid grid-cols-6 gap-4">
   <app-sidebar class="col-span-1"></app-sidebar>
-  <!-- <app-header></app-header>
-  <app-statistics [statsData]="statCards!"></app-statistics>
+  <div class="col-span-5">
+    <app-header></app-header>
+    <div class="mt-[20px] ml-[25px]">
+      <p class="font-body-semibold">
+        No signup, no paywall. <br />
+        Hear the latest updates straight from other applicants.<br />
+        Here are some to start you off:
+      </p>
+    </div>
+  </div>
+  <div class="grid grid-cols-4 gap-0 h-[100%]">
+    <div class="bg-secondary h-[100%]">
+      <p>Hello</p>
+    </div>
+    <div class="bg-secondary h-[100%]">
+      <p>Hello</p>
+    </div>
+    <div class="bg-secondary h-[100%]">
+      <p>Hello</p>
+    </div>
+    <div class="bg-secondary h-[100%]">
+      <p>Hello</p>
+    </div>
+  </div>
+  <!-- <app-statistics [statsData]="statCards!"></app-statistics>
   <div class="table-container">
     <app-applications-table
       class="applications-table"
