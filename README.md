@@ -32,9 +32,10 @@ The data is presented in a tabular format, sorted in order of the date of receiv
 
 ## Roadmap
 
-Planned improvements for the app include:
+Planned updates for the app include:
 
-* Graphs to visualise the latest trends - requires more data to draw meaningful conclusions (at least 50 entries). This can present processing times in a similar format to the Department of Home Affairs (90% processed in x weeks, 75% processed in y weeks, and so on)
+* After trialing the MVP and getting initial feedback, work is currently underway on revamping the application. Check out the Figma designs [here](https://www.figma.com/file/MUZL4nYHiGdZOlJRw6FpOI/ACS-Tracker?type=design&node-id=0%3A1&mode=design&t=g8XJaAWIkuppS1mR-1). 
+* Graphs to visualise the latest trends. This can present processing times in a similar format to the Department of Home Affairs (90% processed in x weeks, 75% processed in y weeks, and so on)
 * Misc bug fixes and performance improvements
 
 ## Contributing
@@ -42,12 +43,6 @@ Planned improvements for the app include:
 Please open an issue if you wish to suggest a major feature, or alternatively send me an email at [soham.sevak@gmail.com](mailto:soham.sevak@gmail.com) with the request.
 
 You are welcome to clone the repo and open a pull request if you would like to submit your own additions.
-
-### Additional Notes
-
-This web app was built using Angular v16, and the backend leverages MongoDB Atlas, a fully managed cloud database solution that also provides easy access to data via APIs that take away the need to manage our own server.
-
-It is hosted using AWS S3 and Cloudfront to provide secure static website hosting at a low cost. 
 
 ## Disclaimer
 
