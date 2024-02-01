@@ -3,6 +3,8 @@
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Facs-tracker.com%2F) &nbsp;&nbsp;&nbsp;&nbsp; ![GitHub](https://img.shields.io/github/license/awkwardlisfan/acs-skills-assessment-tracker) &nbsp;&nbsp;&nbsp;&nbsp; [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2FAwkwardLiSFan%2Facs-skills-assessment-tracker%2Fbadge%3Fref%3Dmain&style=flat)](https://actions-badge.atrox.dev/AwkwardLiSFan/acs-skills-assessment-tracker/goto?ref=main) 
 
 
+📍 UPDATE INCOMING: After the successful trial of the MVP and initial feedback, work is underway on revamping the application to create a polished look and improved user experience, along with some new features! Check out the Figma designs currently being finalised [here](https://www.figma.com/file/MUZL4nYHiGdZOlJRw6FpOI/ACS-Tracker?type=design&node-id=0%3A1&mode=design&t=g8XJaAWIkuppS1mR-1).
+
 
 Visit here: https://acs-tracker.com
 
@@ -29,14 +31,6 @@ The data is presented in a tabular format, sorted in order of the date of receiv
 ## Architecture
 
 ![Architecture diagram for ACS Tracker](src/assets/images/architecture_diagram.png)
-
-## Roadmap
-
-Planned updates for the app include:
-
-* After trialing the MVP and getting initial feedback, work is currently underway on revamping the application. Check out the Figma designs [here](https://www.figma.com/file/MUZL4nYHiGdZOlJRw6FpOI/ACS-Tracker?type=design&node-id=0%3A1&mode=design&t=g8XJaAWIkuppS1mR-1). 
-* Graphs to visualise the latest trends. This can present processing times in a similar format to the Department of Home Affairs (90% processed in x weeks, 75% processed in y weeks, and so on)
-* Misc bug fixes and performance improvements
 
 ## Contributing
 
