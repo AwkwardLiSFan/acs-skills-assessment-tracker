@@ -40,6 +40,17 @@ module.exports = {
           'card-three': '#424242',
           'card-four': '#585858'
         },
+        light: {
+          primary: '#141312',
+          'on-primary': '#FFFFFF',
+          secondary: '#AFAFAF',
+          background: '#F6F6F6',
+          text: '#1E1E1E',
+          'card-one': '#519CB4',
+          'card-two': '#FD3232',
+          'card-three': '#F1CB00',
+          'card-four': '#FF900E'
+        }
       },
       {
         strict: true,

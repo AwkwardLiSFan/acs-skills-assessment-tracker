@@ -10,6 +10,7 @@
           Here are some to start you off:
         </p>
       </div>
+      <!-- Statistics Cards -->
       <app-statistics
         *ngIf="statCards$ | async as statCards"
         class="flex flex-row h-[100%] mt-[40px]"
@@ -17,12 +18,13 @@
       ></app-statistics>
     </div>
     <div class="p-[20px]">
-      <!-- Switch/Toggle -->
+      <!-- Theme Toggle -->
       <div class="relative inline-block">
         <input
           type="checkbox"
           id="hs-large-switch-with-icons"
-          class="peer relative w-[4.25rem] h-9 p-px border-transparent text-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:ring-primary disabled:opacity-50 disabled:pointer-events-none checked:bg-none checked:text-primary checked:border-primary focus:checked:border-primary bg-on-primary checked:bg-primary dark:focus:ring-offset-gray-600 before:inline-block before:w-8 before:h-8 before:bg-white checked:before:bg-white before:translate-x-0 checked:before:translate-x-full before:rounded-full before:shadow before:transform before:ring-0 before:transition before:ease-in-out before:duration-200"
+          class="peer relative w-[4.25rem] h-9 p-px border-white border-[1.5px] text-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:ring-primary disabled:opacity-50 disabled:pointer-events-none checked:bg-none checked:text-primary checked:border-primary focus:checked:border-primary bg-on-primary checked:bg-primary dark:focus:ring-offset-gray-600 before:inline-block before:w-8 before:h-8 before:bg-white checked:before:bg-white before:translate-x-0 checked:before:translate-x-full before:rounded-full before:shadow before:transform before:ring-0 before:transition before:ease-in-out before:duration-200"
+          (click)="toggleTheme($event)"
         />
         <label for="hs-large-switch-with-icons" class="sr-only">switch</label>
         <span
@@ -36,7 +38,6 @@
           <span class="material-symbols-outlined"> light_mode </span>
         </span>
       </div>
-      <!-- End Switch/Toggle -->
     </div>
   </div>
   <!-- <app-statistics [statsData]="statCards!"></app-statistics>

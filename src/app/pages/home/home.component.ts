@@ -32,8 +32,8 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.themeService.load();
-    // this.statCards$ = this.fetchTableEntries();
+    this.themeService.applyTheme();
+    this.statCards$ = this.fetchTableEntries();
   }
 
   /**
@@ -164,5 +164,13 @@ export class HomeComponent implements OnInit {
       colour: "card-four",
       icon: "school",
     };
+  }
+
+  toggleTheme(event: MouseEvent) {
+    if ((event.target as HTMLInputElement).checked) {
+      this.themeService.toggleLightMode();
+    } else {
+      this.themeService.toggleDarkMode();
+    }
   }
 }
