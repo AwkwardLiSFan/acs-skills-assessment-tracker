@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { MatTableDataSource } from "@angular/material/table";
-import { map } from "rxjs";
+import { Observable, map, tap } from "rxjs";
 import {
   Application,
   GetAllEntriesGQL,
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   public dataSource: MatTableDataSource<any> = new MatTableDataSource();
 
   /* Data passed on to the statistics component for rendering cards */
-  public statCards: StatisticsCard[] | undefined;
+  public statCards$: Observable<StatisticsCard[]>;
 
   constructor(
     private getAllEntriesQuery: GetAllEntriesGQL,
@@ -33,22 +33,22 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.themeService.load();
-    // this.fetchTableEntries();
+    // this.statCards$ = this.fetchTableEntries();
   }
 
   /**
    * Runs GraphQL query to fetch all table entries from the MongoDB Atlas Collection
    */
-  private fetchTableEntries(): void {
-    this.getAllEntriesQuery
-      .fetch()
-      .pipe(map((response) => response.data.applications))
-      .subscribe((data) => {
+  private fetchTableEntries(): Observable<StatisticsCard[]> {
+    return this.getAllEntriesQuery.fetch().pipe(
+      map((response) => response.data.applications),
+      map((data) => {
         if (data && data.length > 0) {
           this.dataSource = new MatTableDataSource(data);
-          this.statCards = this.calculateStatistics(data as Application[]);
-        }
-      });
+          return this.calculateStatistics(data as Application[]);
+        } else return [];
+      }),
+    );
   }
 
   /**
