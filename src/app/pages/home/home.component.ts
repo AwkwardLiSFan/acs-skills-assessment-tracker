@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.themeService.load();
-    this.fetchTableEntries();
+    // this.fetchTableEntries();
   }
 
   /**

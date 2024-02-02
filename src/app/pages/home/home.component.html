@@ -10,28 +10,10 @@
           Here are some to start you off:
         </p>
       </div>
-      <div class="flex flex-row h-[100%] mt-[40px]">
-        <div
-          *ngFor="let card of statCards"
-          [class]="
-            'bg-' +
-            card.colour +
-            ' flex flex-col w-[100%] items-center space-evenly p-[20px]'
-          "
-        >
-          <div class="flex flex-col items-center">
-            <span class="material-symbols-outlined text-8xl mb-[20px]">
-              {{ card.icon }}
-            </span>
-            <h2 class="font-heading-regular">{{ card.header }}</h2>
-          </div>
-          <div
-            class="mb-[40px] mt-[20px] font-body-regular w-[250px] text-center"
-          >
-            <p>{{ card.text }}</p>
-          </div>
-        </div>
-      </div>
+      <app-statistics
+        class="flex flex-row h-[100%] mt-[40px]"
+        [statsData]="statCards!"
+      ></app-statistics>
     </div>
   </div>
   <!-- <app-statistics [statsData]="statCards!"></app-statistics>
