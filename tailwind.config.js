@@ -5,6 +5,12 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: ['./src/**/*.{html,ts}'],
+  safelist: [
+    'bg-card-one',
+    'bg-card-two',
+    'bg-card-three',
+    'bg-card-four'
+  ],
   theme: {
     extend: {
       opacity: {
@@ -28,7 +34,11 @@ module.exports = {
           'on-primary': '#1E1E1E',
           secondary: '#AFAFAF',
           background: '#141312',
-          text: '#FFFFFF'
+          text: '#FFFFFF',
+          'card-one': '#262626',
+          'card-two': '#343434',
+          'card-three': '#424242',
+          'card-four': '#585858'
         },
       },
       {

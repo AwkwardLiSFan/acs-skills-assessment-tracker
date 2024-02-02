@@ -11,6 +11,8 @@ import { ThemeService } from "src/app/services/theme/theme.service";
 export type StatisticsCard = {
   header: string;
   text: string;
+  icon: string;
+  colour: string;
 };
 
 @Component({
@@ -31,7 +33,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.themeService.load();
-    // this.fetchTableEntries();
+    this.fetchTableEntries();
   }
 
   /**
@@ -95,7 +97,9 @@ export class HomeComponent implements OnInit {
 
     return <StatisticsCard>{
       header: `${Math.round(averageProcessingTime)} days`,
-      text: `median response time in past month`,
+      text: `Median response time in past month`,
+      colour: "card-one",
+      icon: "av_timer",
     };
   }
 
@@ -112,6 +116,8 @@ export class HomeComponent implements OnInit {
     return <StatisticsCard>{
       header: `${Math.round(onshoreApplicantsPercentage * 100) / 100}%`,
       text: `Onshore Applicants`,
+      colour: "card-two",
+      icon: "globe",
     };
   }
 
@@ -135,6 +141,8 @@ export class HomeComponent implements OnInit {
     return <StatisticsCard>{
       header: `${result.split(" ")[0]}`, // grab only the numeral and not the entire string
       text: `Most Popular ANZSCO Code`,
+      colour: "card-three",
+      icon: "computer",
     };
   }
 
@@ -153,6 +161,8 @@ export class HomeComponent implements OnInit {
     return <StatisticsCard>{
       header: `${Math.round(pastApplicationPercentage * 100) / 100}%`,
       text: `Post Australian Study Applications`,
+      colour: "card-four",
+      icon: "school",
     };
   }
 }

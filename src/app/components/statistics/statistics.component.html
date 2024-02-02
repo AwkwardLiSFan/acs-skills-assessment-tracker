@@ -1,6 +1,19 @@
-<div class="statistics-container">
-  <mat-card class="stats-card" *ngFor="let card of statsData">
-    <h1 style="margin-top: 0px">{{ card.header }}</h1>
-    <p class="card-text">{{ card.text }}</p>
-  </mat-card>
+<div *ngFor="let card of statsData">
+  <div
+    [class]="
+      'bg-' +
+      card.colour +
+      ' flex flex-col w-[100%] items-center space-evenly p-[20px]'
+    "
+  >
+    <div class="flex flex-col items-center">
+      <span class="material-symbols-outlined text-8xl mb-[20px]">
+        {{ card.icon }}
+      </span>
+      <h2 class="font-heading-regular">{{ card.header }}</h2>
+    </div>
+    <div class="mb-[40px] mt-[20px] font-body-regular w-[250px] text-center">
+      <p>{{ card.text }}</p>
+    </div>
+  </div>
 </div>
