@@ -1,9 +1,9 @@
 <div
   class="h-screen w-[300px] bg-primary text-on-primary p-[20px] flex flex-col justify-between items-center text-center"
 >
-  <div>
+  <div *ngIf="theme$ | async as theme">
     <img
-      [src]="darkLogoUrl"
+      [src]="theme === 'dark' ? darkLogoUrl : lightLogoUrl"
       width="180px"
       height="180px"
       class="ml-[10px]"

@@ -26,6 +26,8 @@ export class HomeComponent implements OnInit {
   /* Data passed on to the statistics component for rendering cards */
   public statCards$: Observable<StatisticsCard[]>;
 
+  public theme$: Observable<string | null> = new Observable();
+
   constructor(
     private getAllEntriesQuery: GetAllEntriesGQL,
     private themeService: ThemeService,
@@ -33,7 +35,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.themeService.applyTheme();
-    this.statCards$ = this.fetchTableEntries();
+    this.theme$ = this.themeService.theme$;
+    // this.statCards$ = this.fetchTableEntries();
   }
 
   /**

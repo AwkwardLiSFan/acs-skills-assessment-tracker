@@ -1,12 +1,14 @@
 import { Injectable } from "@angular/core";
+import { BehaviorSubject, Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
 export class ThemeService {
-  constructor() {
-    console.log(`Empty statement`);
-  }
+  private currentTheme: BehaviorSubject<string | null> = new BehaviorSubject<
+    string | null
+  >(null);
+  public theme$: Observable<string | null> = this.currentTheme.asObservable();
 
   /** Assigns default dark mode upon app load */
   applyTheme() {
@@ -17,9 +19,11 @@ export class ThemeService {
     ) {
       document.documentElement.classList.add("dark");
       document.documentElement.classList.remove("light");
+      this.currentTheme.next("dark");
     } else {
       document.documentElement.classList.add("light");
       document.documentElement.classList.remove("dark");
+      this.currentTheme.next("light");
     }
   }
 

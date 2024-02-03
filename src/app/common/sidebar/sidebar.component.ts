@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { IconDefinition, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import { Observable } from "rxjs";
+import { ThemeService } from "src/app/services/theme/theme.service";
 import { environment } from "src/environments/environment";
 
 export interface RouteLink {
@@ -16,6 +18,8 @@ export interface RouteLink {
 export class SidebarComponent {
   darkLogoUrl: string =
     environment.iconsDeployUrl + "assets/images/ACSTrackerDarkLogo.png";
+  lightLogoUrl: string =
+    environment.iconsDeployUrl + "assets/images/ACSTrackerLightLogo.png";
   title = "acs tracker";
   githubIcon: IconDefinition = faGithub;
   helpIcon: IconDefinition = faQuestionCircle;
@@ -27,7 +31,9 @@ export class SidebarComponent {
     { displayName: "ASK", path: "/ask" },
   ];
 
-  constructor() {
-    console.log(`Sidebar WIP`);
+  public theme$: Observable<string | null> = new Observable();
+
+  constructor(private themeService: ThemeService) {
+    this.theme$ = this.themeService.theme$;
   }
 }
