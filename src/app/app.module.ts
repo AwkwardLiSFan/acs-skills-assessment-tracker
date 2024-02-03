@@ -16,6 +16,7 @@ import { LayoutModule } from "@angular/cdk/layout";
 import { GraphQLModule } from "./graphql.module";
 import { StatisticsComponent } from "./components/statistics/statistics.component";
 import { SidebarComponent } from "./common/sidebar/sidebar.component";
+import { ThemeToggleComponent } from "./common/theme-toggle/theme-toggle.component";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SidebarComponent } from "./common/sidebar/sidebar.component";
     AddEntryDialogComponent,
     StatisticsComponent,
     SidebarComponent,
+    ThemeToggleComponent,
   ],
   imports: [
     BrowserModule,
